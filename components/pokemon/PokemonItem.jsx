@@ -10,10 +10,12 @@ export default function PokemonItem({ pokemonData, variantData }) {
   
             return (
               <div className='p-2 border rounded' key={base.id}>
-                <h1 className='text-2xl font-semibold'>{base.base_name}</h1>
-                <h2 className='text-xl font-semibold'>{base.pokedex_num}</h2>
+                <h1 className='text-2xl font-semibold'>{base.pokedex_num} {base.base_name}</h1>
                 {variants.length > 0 && (
-                <img className='h-20 w-20' key={variants[0].id} src={`/pokemon_imgs/${variants[0].img_name}`}/>
+                <>
+                  <h2 className='text-2xl font-semibold'>{variants[0].type_1} {variants[0].type_2}</h2>
+                  <img className='h-20 w-20' key={variants[0].id} src={`/pokemon_imgs/${variants[0].img_name}`} alt={variants[0].img_name}/>
+                </>
               )}
               </div>
             );
