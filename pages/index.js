@@ -6,11 +6,27 @@ import Counter from '@/components/Counter'
 const inter = Inter({ subsets: ['latin'] })
 
 import React from 'react'
+import Background from '@/components/index/background'
+import Footer from '@/components/index/Footer'
 
 export default function Home() {
   return (
     <>
+      <Background />
       <Navbar />
+      <Footer />
     </>
   )
 }
+
+/*
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      <div className='homepage'></div>
+      <Footer />
+    </>
+  )
+}
+*/
