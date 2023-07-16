@@ -1,6 +1,7 @@
 import React from 'react'
 import PokemonItem from '@/components/pokemon/PokemonItem'
 import Head from 'next/head'
+import Navbar from '@/components/Navbar'
 
 
 
@@ -11,7 +12,7 @@ export default function Pokemon({ pokemonData, variantData }) {
                 <title>Pokemon</title>
                 <meta name='description' content='Pokemon List' />
             </Head>
-
+            <Navbar />
             <PokemonItem pokemonData={pokemonData} variantData={variantData}/>
         </>
     )
