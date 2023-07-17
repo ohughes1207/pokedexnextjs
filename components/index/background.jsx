@@ -6,7 +6,7 @@ export default function Background() {
     return (
         <div>
             <Image
-                className='mt-[35px]'
+                className='mt-[10px]'
                 alt="pokeball animation"
                 src={poke}
                 quality={100}
