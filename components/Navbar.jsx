@@ -22,7 +22,7 @@ const NavigationIcon = () => (
 const HomepageLogo = () => (
   <div className="container h-[110px] w-[110px] relative">
     <a href='/' className='h-[110px]'>
-      <img src="mareep-nobg.png" alt="logo" className='relative top-1'/> 
+      <img src="mareep-nobg.png" alt="logo" className='relative top-1 hover:brightness-90'/> 
     </a>
   </div>
 )
