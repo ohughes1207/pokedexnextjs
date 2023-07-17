@@ -6,7 +6,6 @@ export default function Navbar() {
     <header className="bg-red-500 fixed top-0 w-full items-baseline flex h-[120px]">
       <NavigationIcon />
       <HomepageLogo />
-      <WebTitle />
     </header>
   )
 }
