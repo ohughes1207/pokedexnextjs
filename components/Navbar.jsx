@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <header className="bg-red-500 fixed top-0 w-full items-baseline flex h-[120px]">
       <div className='w-24 h-24 relative bottom-5 content-center left-5 mr-24 items-center'>
-        <button className='btn bg-red-500 text-gray-100 hover:text-red-500 hover:bg-gray-100 shadow-2xl hover:rounded-3xl transition-all duration-300 ease-linear'>
+        <button className='btn bg-red-500 text-gray-100 hover:text-red-500 hover:bg-gray-100 shadow-xl hover:rounded-3xl transition-all duration-300 ease-linear'>
           <FaBars size={65} />
         </button>
       </div>
