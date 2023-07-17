@@ -11,7 +11,7 @@ export default function Pokemon({ pokemonData, variantData }) {
     return (
         <>
             <Head>
-                <title>Pokemon</title>
+                <title>Pokedex</title>
                 <meta name='description' content='Pokemon List' />
             </Head>
             <Navbar />
