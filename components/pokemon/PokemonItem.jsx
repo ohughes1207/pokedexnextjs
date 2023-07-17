@@ -9,7 +9,7 @@ export default function PokemonItem({ pokemonData, variantData }) {
             );
   
             return (
-              <div className='p-2 border rounded' key={base.id}>
+              <div className='border rounded w-3/4 my-3' key={base.id}>
                 <h1 className='text-2xl font-semibold'>{base.pokedex_num} {base.base_name}</h1>
                 {variants.length > 0 && (
                 <>
