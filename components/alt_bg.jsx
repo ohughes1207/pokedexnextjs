@@ -7,7 +7,7 @@ export default function AltBackground() {
         <div>
             <Image
                 className='mt-[35px]'
-                alt="pokeball animation"
+                alt="alt bg"
                 src={bg}
                 quality={100}
                 fill
