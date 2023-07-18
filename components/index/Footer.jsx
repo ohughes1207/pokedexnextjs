@@ -3,7 +3,6 @@ import React from 'react';
 import { BsDiscord } from 'react-icons/bs'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
-import { AiFillHeart } from 'react-icons/ai'
 
 export default function Footer() {
   return (
@@ -12,7 +11,6 @@ export default function Footer() {
     </footer>
   );
 }
-
 
 const Avatar = () => (
   <div className="w-40 h-40 -mt-5">
