@@ -25,15 +25,3 @@ export default function Home() {
     </>  
   )
 }
-
-/*
-export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <div className='homepage'></div>
-      <Footer />
-    </>
-  )
-}
-*/
