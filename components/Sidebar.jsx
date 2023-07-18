@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useState } from 'react';
 import { TbPokeball } from "react-icons/tb";
 import { TbSearch } from 'react-icons/tb';
 
@@ -9,7 +9,7 @@ export default function Sidebar() {
       <a href='/pokemon'>
         <SidebarIcon icon={<TbSearch size="85"/>} text='Pokedex' />
       </a>
-      <a href='team-builder'>
+      <a href='/team-builder'>
         <SidebarIcon icon={<TbPokeball size="85"/>} text='Team Builder'/>
       </a>
     </div>
