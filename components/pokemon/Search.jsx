@@ -1,13 +1,13 @@
+/*
 import React, { useEffect, useState } from 'react'
 import SearchPokemon from './hooks/SearchPokemon';
 
-export default function Search( { onSearch }) {
+export default function Search() {
 
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
-    onSearch(searchQuery)
   };
 
   return (
@@ -21,3 +21,4 @@ export default function Search( { onSearch }) {
     </form>
   );
   }
+  */
