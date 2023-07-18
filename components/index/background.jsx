@@ -6,10 +6,9 @@ export default function Background() {
     return (
         <div>
             <Image
-                className='mt-[10px]'
+                className=''
                 alt="pokeball animation"
                 src={poke}
-                quality={100}
                 fill
                 style={{
                 objectFit: 'cover'
