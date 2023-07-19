@@ -21,23 +21,38 @@ const PokemonCard = ({ pokemonData, searchQuery }) => {
         );
     return (
       <>
-        <div className="mx-auto p-40 border border-black">
+        <div className="mx-auto border border-black w-3/4 p-4 my-8">
         {filteredPokemonData.map((pokemon) => (
-                    <card className='border rounded w-3/4 my-3 border-black' key={pokemon.base_id}>
-                    <h1 className='text-2xl font-semibold border border-black'>{pokemon.pokedex_num} {pokemon.base_name}</h1>
-                    <h2 className='text-2xl font-semibold border border-black'>{pokemon.variants[0].type_1} {pokemon.variants[0].type_2}</h2>
-                    <img
-                    className='h-20 w-20 border border-black'
-                    key={pokemon.variants[0].var_id}
-                    src={`/pokemon_imgs/${pokemon.variants[0].img_name}`}
-                    alt={pokemon.variants[0].img_name}
-                    />
-                </card>
+                <div className='border border-black my-4 flex rounded-full p-4' key={pokemon.base_id}>
+                  <img className='h-72 bg-black border rounded-full m-4' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+                  <CommonAttributes pokemon={pokemon}/>
+                  <UniqueAttributes />
+                </div>
             ))}
         </div>
       </>
     );
   }
+
+
+const CommonAttributes = ( {pokemon} ) => (
+  <div className="border border-black h-72">
+    <h1 className='text-5xl font-semibold p-2'>{pokemon.pokedex_num}</h1>
+    <h1 className='text-5xl font-semibold p-2'>{pokemon.base_name}</h1>
+    <div className="text-5xl font-semibold p-2 flex">
+      <h2 className=''>{pokemon.variants[0].type_1}</h2>
+      <h2 className='ml-2'>{pokemon.variants[0].type_2}</h2>
+    </div>
+  </div>
+);
+
+const UniqueAttributes = ( {pokemon} ) => (
+  <div className="border border-black w-72 h-72 right-0 mx-auto">
+    <h1 className='text-5xl font-semibold p-2'>Legendary</h1>
+    <h1 className='text-5xl font-semibold p-2'>Mega</h1>
+  </div>
+);
+
   
 const SearchBar = ( {setSearchQuery} ) => {
   
@@ -45,14 +60,8 @@ const SearchBar = ( {setSearchQuery} ) => {
       setSearchQuery(e.target.value);
     };  
     return (
-        <div className="p-40 mx-auto">
-            <form className=''>
-                <input
-                className='mb-10 border rounded border-black'
-                onChange={handleInputChange}
-                type="text"
-                />
-            </form>
-        </div>
+      <form className='h-96 border border-black mx-auto w-3/4 mt-32'>
+          <input className='border rounded border-black w-1/3 text-5xl' onChange={handleInputChange} type="text" placeholder="Search Pokemon"/>
+      </form>
     );
     }
