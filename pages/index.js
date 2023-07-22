@@ -1,13 +1,14 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 import React from 'react'
 import Background from '@/components/index/background'
 import Footer from '@/components/index/Footer'
-import Sidebar from '@/components/Sidebar'
+import UIProvider from '@/components/UI/UIContext'
+import Sidebar from '@/components/UI/Sidebar'
+import Navbar from '@/components/UI/Navbar'
 
 export default function Home() {
   return (
@@ -17,8 +18,10 @@ export default function Home() {
         <meta name='description' content='Pokedex App Homepage' />
       </Head>
       <Background />
-      <Navbar />
-      <Sidebar />
+      <UIProvider>
+        <Navbar />
+        <Sidebar />
+      </UIProvider>
       <Footer />
     </>  
   )

@@ -1,8 +1,9 @@
 import React from 'react'
 
 import Head from 'next/head'
-import Navbar from '@/components/Navbar'
-import Sidebar from '@/components/Sidebar'
+import UIProvider from '@/components/UI/UIContext'
+import Sidebar from '@/components/UI/Sidebar'
+import Navbar from '@/components/UI/Navbar'
 import TeamTable from '@/components/team_builder/TeamTable'
 
 
@@ -14,8 +15,10 @@ export default function TeamBuilder() {
                 <title>Team Builder</title>
                 <meta name='description' content='Pokemon List' />
             </Head>
-            <Navbar />
-            <Sidebar />
+            <UIProvider>
+                <Navbar />
+                <Sidebar />
+            </UIProvider>
             <TeamTable />
         </>
     )

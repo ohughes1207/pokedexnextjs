@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react';
 import { TbPokeball } from "react-icons/tb";
 import { TbSearch } from 'react-icons/tb';
 

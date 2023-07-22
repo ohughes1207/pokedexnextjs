@@ -1,10 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import Navbar from '@/components/Navbar'
-import Sidebar from '@/components/Sidebar'
 import SearchMenu from '@/components/pokemon/SearchMenu'
 import PokemonList from '@/components/pokemon/PokemonItem'
 import PokedexProvider from '@/components/pokemon/PokedexContext'
+import UIProvider from '@/components/UI/UIContext'
+import Sidebar from '@/components/UI/Sidebar'
+import Navbar from '@/components/UI/Navbar'
 
 
 
@@ -15,8 +16,10 @@ export default function Pokemon({ pokemonData }) {
                 <title>Pokedex</title>
                 <meta name='description' content='Pokemon List' />
             </Head>
-            <Navbar />
-            <Sidebar />
+            <UIProvider>
+                <Navbar />
+                <Sidebar />
+            </UIProvider>
             <PokedexProvider >
                 <SearchMenu />
                 <PokemonList pokemonData={pokemonData}/>
