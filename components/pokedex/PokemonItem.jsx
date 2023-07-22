@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import SearchPokemon from "./hooks/SearchPokemon";
+import SearchPokemon from "./functions/SearchPokemon";
 import { usePokedex } from "./PokedexContext";
 
 export default function PokemonList ({pokemonData}) {
 
   const {searchQuery, T1Filter, T2Filter} = usePokedex()
-  
+
   const filteredPokemonData = pokemonData.filter((pokemon) =>
     SearchPokemon(pokemon, searchQuery, T1Filter, T2Filter));
 

@@ -5,7 +5,7 @@ import { TbSearch } from 'react-icons/tb';
 export default function Sidebar() {
   return (
     <div className='fixed left-0 w-32 flex flex-col bg-red-500 shadow-lg rounded-r-3xl top-1/3 py-3'>
-      <a href='/pokemon'>
+      <a href='/pokedex'>
         <SidebarIcon icon={<TbSearch size="85"/>} text='Pokedex' />
       </a>
       <a href='/team-builder'>
