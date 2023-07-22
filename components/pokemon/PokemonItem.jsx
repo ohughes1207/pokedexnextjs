@@ -5,6 +5,7 @@ import { usePokedex } from "./PokedexContext";
 export default function PokemonList ({pokemonData}) {
 
   const {searchQuery, T1Filter, T2Filter} = usePokedex()
+  
   const filteredPokemonData = pokemonData.filter((pokemon) =>
     SearchPokemon(pokemon, searchQuery, T1Filter, T2Filter));
 
