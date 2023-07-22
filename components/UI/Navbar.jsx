@@ -18,7 +18,6 @@ const NavigationIcon = () => {
   
   const toggleSidebar = () => {
     setSidebarVisible(!SidebarVisible);
-    console.log(SidebarVisible);
   }
   return (
     <div className='w-24 h-24 relative content-center bottom-2 left-5 mr-24'>
