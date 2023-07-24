@@ -21,7 +21,7 @@ const NavigationIcon = () => {
   }
   return (
     <div className='w-24 h-24 relative content-center bottom-2 left-5 mr-24'>
-      <button className={`btn bg-red-500 text-gray-100 hover:text-red-500 hover:bg-gray-100 shadow-xl hover:rounded-2xl rounded transition-all duration-300 ease-linear ${SidebarVisible ? 'text-red-500 bg-gray-100 rounded-2xl' : null}`} onClick={toggleSidebar}>
+      <button className={`text-gray-100 shadow-xl hover:rounded-2xl rounded transition-all duration-300 ease-linear ${SidebarVisible ? 'text-red-500 rounded-2xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleSidebar}>
         <FaBars size={90} />
       </button>
     </div>
