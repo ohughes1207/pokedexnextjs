@@ -29,42 +29,21 @@ export default function Pokemon({ pokemonData }) {
 }
 
 export async function getServerSideProps() {
+
     const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/pokemon`)
     const variantResponse = await fetch(`${process.env.NEXT_API_URL}/variants`)
+
     const pokemonData = await pokemonResponse.json()
     const variantData = await variantResponse.json()
     console.log("pokemonData:", pokemonData);
+
     pokemonData.forEach((pokemon) => {
         pokemon.variants = variantData.filter((variant) => variant.pokedex_num === pokemon.pokedex_num);
       });
     
     return {
         props: {
-            pokemonData
+            pokemonData,
         }
     }
 }
-
-
-/*
-export default function Pokemon({ pokemonData, variantData }) {
-    return (
-        <>
-            <Head>
-                <title>Pokedex</title>
-                <meta name='description' content='Pokemon List' />
-            </Head>
-            <Navbar />
-            <Sidebar />
-            <div className='mt-40 ml-40'>
-                <PokemonItem pokemonData={pokemonData} variantData={variantData}/>
-            </div>
-        </>
-    )
-}
-
-
-
-
-
-*/

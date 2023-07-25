@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
-import SearchPokemon from "./functions/SearchPokemon";
+import React, { useEffect, useState } from "react";
+import FilterPokemon from "./functions/FilterPokemon";
 import { usePokedex } from "./PokedexContext";
 
 export default function PokemonList ({pokemonData}) {
 
-  const {searchQuery, T1Filter, T2Filter} = usePokedex()
+  const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega } = usePokedex();
+  
+  const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
 
-  const filteredPokemonData = pokemonData.filter((pokemon) =>
-    SearchPokemon(pokemon, searchQuery, T1Filter, T2Filter));
+  useEffect(() => {
+    const filteredData = FilterPokemon(pokemonData,searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega);
+    setFilteredPokemonData(filteredData);
+    }, [searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega]);
 
   return (
     <>
