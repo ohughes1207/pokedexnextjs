@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FilterPokemon from "./functions/FilterPokemon";
 import { usePokedex } from "./PokedexContext";
+import GetTypeStyle from "./functions/GetTypeStyle";
 
 export default function PokemonList ({pokemonData}) {
 
@@ -15,25 +16,21 @@ export default function PokemonList ({pokemonData}) {
 
   return (
     <>
-      <div className="mx-auto border border-black w-3/4 p-4 my-8">
+      <div className="mx-auto border border-black w-3/4 p-4 my-8 rounded-3xl bg-red-500">
         {filteredPokemonData.map((pokemon) => (
-          <div className='border border-black my-4 flex rounded-full p-4' key={pokemon.base_id}>
-            <img className='h-72 bg-black border rounded-full m-4' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+          <div className={`border border-black my-4 flex rounded-full p-4 ${GetTypeStyle(pokemon.variants[0].type_1)}Card shadow-md`} key={pokemon.base_id}>
+            <img className='h-72 bg-black border border-black rounded-full m-4' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
             <CommonAttributes pokemon={pokemon}/>
             <UniqueAttributes pokemon={pokemon}/>
           </div>
           ))}
-          <div className="border border-black bottom-0">
-            PREVIOUS PAGE
-            NEXT PAGE
-          </div>
       </div>
     </>
     );
     }
 
 const CommonAttributes = ( {pokemon} ) => (
-  <div className="border border-black h-72 w-max">
+  <div className="border border-black h-72 w-max my-auto">
     <h1 className='text-5xl font-semibold p-2'>{pokemon.pokedex_num}</h1>
     <h1 className='text-5xl font-semibold p-2'>{pokemon.base_name}</h1>
     <div className="text-5xl font-semibold p-2 flex">
@@ -44,7 +41,7 @@ const CommonAttributes = ( {pokemon} ) => (
 );
 
 const UniqueAttributes = ( {pokemon} ) => (
-  <div className="border border-black w-72 h-72 right-0 mx-auto">
+  <div className="border border-black w-72 h-72 right-0 m-auto">
     {pokemon.pseudo_legendary && (
       <h1 className='text-5xl font-semibold p-2 text-center'>Pseudo-legendary</h1>
     )}

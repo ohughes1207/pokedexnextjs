@@ -32,3 +32,78 @@
       @apply absolute w-auto p-2 m-2 min-w-max left-28 rounded-md shadow-md text-gray-100 bg-gray-800 text-xs font-bold transition-all duration-300 scale-0 origin-left
     }
 }
+
+@layer pokemonTypes {
+
+    .grassCard {
+      @apply bg-[#78C850]
+    }
+
+    .fireCard {
+      @apply bg-[#F08030]
+    }
+
+    .waterCard {
+      @apply bg-[#6890F0]
+    }
+
+    .bugCard {
+      @apply bg-[#A8B820]
+    }
+
+    .normalCard {
+      @apply bg-[#A8A878]
+    }
+
+    .poisonCard {
+      @apply bg-[#A040A0]
+    }
+
+    .electricCard {
+      @apply bg-[#F8D030]
+    }
+
+    .groundCard {
+      @apply bg-[#E0C068]
+    }
+
+    .fairyCard {
+      @apply bg-[#F0B6BC]
+    }
+
+    .fightingCard {
+      @apply bg-[#C03028]
+    }
+
+    .psychicCard {
+      @apply bg-[#F85888]
+    }
+
+    .darkCard {
+      @apply bg-[#705848]
+    }
+
+    .rockCard {
+      @apply bg-[#B8A038]
+    }
+
+    .dragonCard {
+      @apply bg-[#7038F8]
+    }
+
+    .ghostCard {
+      @apply bg-[#705898]
+    }
+
+    .steelCard {
+      @apply bg-[#B8B8D0]
+    }
+
+    .iceCard {
+      @apply bg-[#98D8D8]
+    }
+
+    .flyingCard {
+      @apply bg-[#A890F0]
+    }
+}
