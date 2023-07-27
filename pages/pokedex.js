@@ -31,15 +31,8 @@ export default function Pokemon({ pokemonData }) {
 export async function getServerSideProps() {
 
     const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/pokemon`)
-    const variantResponse = await fetch(`${process.env.NEXT_API_URL}/variants`)
 
     const pokemonData = await pokemonResponse.json()
-    const variantData = await variantResponse.json()
-    console.log("pokemonData:", pokemonData);
-
-    pokemonData.forEach((pokemon) => {
-        pokemon.variants = variantData.filter((variant) => variant.pokedex_num === pokemon.pokedex_num);
-      });
     
     return {
         props: {
