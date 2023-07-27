@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import FilterPokemon from "./functions/FilterPokemon";
+import FilterPokemon from "./helpers/FilterPokemon";
 import { usePokedex } from "./PokedexContext";
-import GetTypeStyle from "./functions/GetTypeStyle";
+import GetTypeStyle from "./helpers/GetTypeStyle";
 
 export default function PokemonList ({pokemonData}) {
 
@@ -16,12 +16,14 @@ export default function PokemonList ({pokemonData}) {
 
   return (
     <>
-      <div className="mx-auto border border-black w-3/4 p-4 my-8 rounded-3xl bg-red-500">
+      <div className="mx-auto w-3/4 p-4 my-8 rounded-3xl bg-red-500">
         {filteredPokemonData.map((pokemon) => (
-          <div className={`border border-black my-4 flex rounded-full p-4 ${GetTypeStyle(pokemon.variants[0].type_1)}Card shadow-md`} key={pokemon.base_id}>
-            <img className='h-72 bg-black border border-black rounded-full m-4' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
-            <CommonAttributes pokemon={pokemon}/>
-            <UniqueAttributes pokemon={pokemon}/>
+          <div className={`my-4 flex rounded-full p-4 ${GetTypeStyle(pokemon.variants[0].type_1)}Card shadow-md`} key={pokemon.base_id}>
+            <img className='h-72 bg-black rounded-full m-4 shadow-lg' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+            <div className="flex rounded-3xl shadow-xl ml-10">
+              <CommonAttributes pokemon={pokemon}/>
+              <UniqueAttributes pokemon={pokemon}/>
+            </div>
           </div>
           ))}
       </div>
@@ -30,7 +32,7 @@ export default function PokemonList ({pokemonData}) {
     }
 
 const CommonAttributes = ( {pokemon} ) => (
-  <div className="border border-black h-72 w-max my-auto">
+  <div className="h-72 my-auto mx-4 w-96">
     <h1 className='text-5xl font-semibold p-2'>{pokemon.pokedex_num}</h1>
     <h1 className='text-5xl font-semibold p-2'>{pokemon.base_name}</h1>
     <div className="text-5xl font-semibold p-2 flex">
@@ -41,7 +43,7 @@ const CommonAttributes = ( {pokemon} ) => (
 );
 
 const UniqueAttributes = ( {pokemon} ) => (
-  <div className="border border-black w-72 h-72 right-0 m-auto">
+  <div className="w-72 h-72 my-auto mx-4">
     {pokemon.pseudo_legendary && (
       <h1 className='text-5xl font-semibold p-2 text-center'>Pseudo-legendary</h1>
     )}
