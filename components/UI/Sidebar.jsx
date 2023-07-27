@@ -8,10 +8,7 @@ export default function Sidebar() {
   return (
     <div className={`fixed left-0 w-32 flex flex-col bg-red-500 shadow-lg rounded-r-3xl top-1/3 py-3 -ml-32 duration-300 ${SidebarVisible ? 'ml-0' : null}`}>
       <a href='/pokedex'>
-        <SidebarIcon icon={<TbSearch size="85"/>} text='Pokedex' />
-      </a>
-      <a href='/team-builder'>
-        <SidebarIcon icon={<TbPokeball size="85"/>} text='Team Builder'/>
+        <SidebarIcon icon={<TbPokeball size="85"/>} text='Pokedex' />
       </a>
     </div>
   )
