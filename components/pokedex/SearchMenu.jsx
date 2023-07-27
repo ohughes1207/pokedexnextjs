@@ -8,15 +8,15 @@ export default function SearchMenu () {
   return (
   <div className='h-96 mx-auto w-3/4 mt-32 flex p-1 bg-red-500 rounded-3xl'>
     <div className=" m-3 mx-auto">
-      <div className="mt-8 w-3/4 m-auto shadow-lg rounded-3xl">
+      <div className="mt-4 w-3/4 m-auto shadow-lg rounded-3xl pt-4">
         <div className="flex mx-auto">
           <SearchBar />
         </div>
-        <div className="flex mx-auto">
+        <div className="flex mx-auto my-4">
           <TypeFilter TFilter={setT1Filter}/>
           <TypeFilter TFilter={setT2Filter}/>
         </div>
-        <div className="flex mx-auto">
+        <div className="flex mx-auto my-4">
           <GenFilter />
         </div>
       </div>
