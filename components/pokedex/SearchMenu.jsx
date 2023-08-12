@@ -75,7 +75,7 @@ const GenFilter = () => {
   };
   return (
     <select className="text-4xl m-4 mx-auto rounded-3xl text-center px-5" onChange={handleInputChange}>
-      <option value=""></option>
+      <option value="0"></option>
       <option value="1">Generation 1</option>
       <option value="2">Generation 2</option>
       <option value="3">Generation 3</option>

@@ -18,7 +18,6 @@ export default function PokemonList ({pokemonData}) {
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-        // Handle the error if needed
       });
     }, [searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega]);
 
