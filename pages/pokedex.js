@@ -33,7 +33,8 @@ export async function getServerSideProps() {
     const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/pokemon`)
 
     const pokemonData = await pokemonResponse.json()
-    
+    //console.log("pokemonData type:", typeof pokemonData);
+    //console.log(process.env.NEXT_API_URL)
     return {
         props: {
             pokemonData,

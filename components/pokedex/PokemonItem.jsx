@@ -9,9 +9,17 @@ export default function PokemonList ({pokemonData}) {
   
   const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
 
+  console.log("filteredPokemonData type:", filteredPokemonData);
+
   useEffect(() => {
-    const filteredData = FilterPokemon(pokemonData,searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega);
-    setFilteredPokemonData(filteredData);
+    FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega)
+      .then(filteredData => {
+        setFilteredPokemonData(filteredData);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        // Handle the error if needed
+      });
     }, [searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega]);
 
   return (

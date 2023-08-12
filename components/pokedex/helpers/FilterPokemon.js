@@ -1,51 +1,39 @@
-export default function FilterPokemon(pokemon, searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega) {    
-  
-  let filteredPokemon = pokemon.filter(poke => poke.base_name.toLowerCase().includes(searchQuery.toLowerCase()));
+export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega) {
 
-  if (T1Filter) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.variants[0].type_1.toLowerCase().includes(T1Filter.toLowerCase()) || poke.variants[0].type_2?.toLowerCase().includes(T1Filter.toLowerCase()));
-  }
-  if (T2Filter) {
-    if (T2Filter === T1Filter) {
-      filteredPokemon = filteredPokemon.filter(poke => (!poke.variants[0].type_2))
+  const queryParams = new URLSearchParams({
+    pokemon_name: searchQuery,
+    T1: T1Filter,
+    T2: T2Filter,
+    genValue: genValue,
+    Leg: isLegendary,
+    Para: isParadox,
+    Pseudo: isPseudoL,
+    UB: isUB,
+    Myth: isMythical,
+    Regional: isRegional,
+    Mega: isMega
+  });
+
+  const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/pokemon/filter?${queryParams}`)
+
+  console.log(url);
+
+  try {
+    console.log('Checkpoint 1');
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      console.log('Checkpoint 2');
+      throw new Error('Network response was not ok');
     }
-    else {
-      filteredPokemon = filteredPokemon.filter(poke => poke.variants[0].type_1.toLowerCase().includes(T2Filter.toLowerCase()) || poke.variants[0].type_2?.toLowerCase().includes(T2Filter.toLowerCase()));
-    }
+    console.log('Checkpoint 3');
+    const data = await response.json();
+    console.log('Fetched data:', data);
+
+    return data;
   }
-  if (isLegendary) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.legendary == isLegendary);
+  catch (e) {
+    console.error('Error fetching data:', e);
+    throw e; // Rethrow the error to be caught by the caller if needed
   }
-  if (isParadox) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.paradox === isParadox);
-  }
-  if (isPseudoL) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.pseudo_legendary === isPseudoL);
-  }
-  if (isUB) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.ultrabeast === isUB);
-  }
-  if (isRegional) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.variants && poke.variants.some(variant => variant.regional));
-  }
-  if (isMega) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.variants && poke.variants.some(variant => variant.mega));
-  }
-  if (isMythical) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.mythical === isMythical);
-  }
-  if (genValue) {
-    filteredPokemon = filteredPokemon.filter(poke => poke.gen == genValue);
-  }
-  return filteredPokemon;
 }
-
-
-/*
-  if (T1Filter !== '') {
-    filteredPokemon = filteredPokemon.filter(poke => poke.variants.some(variant => variant.type_1.toLowerCase().includes(T1Filter.toLowerCase()) || variant.type_2?.toLowerCase().includes(T1Filter.toLowerCase())));
-  }
-  if (T2Filter !== '') {
-    filteredPokemon = filteredPokemon.filter(poke => poke.variants.some(variant => variant.type_1.toLowerCase().includes(T2Filter.toLowerCase()) || variant.type_2?.toLowerCase().includes(T2Filter.toLowerCase())));
-  }
-*/
