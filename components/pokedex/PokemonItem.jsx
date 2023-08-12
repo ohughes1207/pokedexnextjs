@@ -9,7 +9,7 @@ export default function PokemonList ({pokemonData}) {
   
   const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
 
-  console.log("filteredPokemonData type:", filteredPokemonData);
+  //console.log("filteredPokemonData type:", filteredPokemonData);
 
   useEffect(() => {
     FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega)

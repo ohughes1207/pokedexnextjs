@@ -30,9 +30,10 @@ export default function Pokemon({ pokemonData }) {
 
 export async function getServerSideProps() {
 
-    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/pokemon`)
+    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/pokemon?page=1`)
 
-    const pokemonData = await pokemonResponse.json()
+    const dataFetched = await pokemonResponse.json()
+    const pokemonData = dataFetched.data
     //console.log("pokemonData type:", typeof pokemonData);
     //console.log(process.env.NEXT_API_URL)
     return {

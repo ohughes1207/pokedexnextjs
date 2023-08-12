@@ -27,10 +27,11 @@ export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, gen
       throw new Error('Network response was not ok');
     }
     console.log('Checkpoint 3');
-    const data = await response.json();
-    console.log('Fetched data:', data);
+    const dataFetched = await response.json();
+    const pokemonData = dataFetched.data
+    //console.log('Fetched data:', data);
 
-    return data;
+    return pokemonData;
   }
   catch (e) {
     console.error('Error fetching data:', e);
