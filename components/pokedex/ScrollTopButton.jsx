@@ -13,7 +13,7 @@ export default function ScrollToTopButton () {
             document.documentElement.scrollHeight,
             document.documentElement.offsetHeight
         );
-        if (window.scrollY > documentHeight / 10) {
+        if (window.scrollY > documentHeight / 20) {
           setIsVisible(true);
         } else {
           setIsVisible(false);
