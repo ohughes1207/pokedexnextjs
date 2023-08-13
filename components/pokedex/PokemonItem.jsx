@@ -4,7 +4,7 @@ import { usePokedex } from "./PokedexContext";
 import GetTypeStyle from "./helpers/GetTypeStyle";
 
 
-export default function PokemonList ({pokemonData}) {
+export default function PokemonList ( {pokemonData} ) {
 
   const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega } = usePokedex();
   
@@ -32,9 +32,6 @@ export default function PokemonList ({pokemonData}) {
     </>
     );
   }
-  
-
-
 
 
 const PokemonCard = ( {pokemon} ) => (
@@ -73,6 +70,7 @@ const VariantDetails = ( {variant} ) => (
   </div>
 )
 
+
 const VariantStats = ( {variant} ) => (
   <div className="border border-black w-1/4 h-full text-xl">
     <h1>Total: {variant.total_stats}</h1>
@@ -95,6 +93,7 @@ const CommonAttributes = ( {pokemon} ) => (
     </div>
   </div>
 );
+
 
 const UniqueAttributes = ( {pokemon} ) => (
   <div className="w-72 h-72 my-auto mx-4">
