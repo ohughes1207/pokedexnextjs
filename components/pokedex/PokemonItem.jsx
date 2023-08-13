@@ -59,20 +59,29 @@ const VariantCard = ( {variant} ) => (
   <div className={`border border-black h-1/3 mx-auto my-6 flex items-center rounded-full shadow-md ${GetTypeStyle(variant.type_1)}Card`} key={variant.var_id}>
     <img className='h-56 m-4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
     <div className="border border-black h-56 w-2/3 rounded-3xl flex p-2 shadow-lg">
-      <div className="border border-black w-2/3 h-full ml-2">
-        <h1 className="text-4xl">{variant.var_name}</h1>
-        <h2 className="text-4xl py-2">{variant.type_1} {variant.type_2}</h2>
-      </div>
-      <div className="border border-black w-1/4 h-full text-xl">
-        <h1>Total: {variant.total_stats}</h1>
-        <h2>HP: {variant.hp}</h2>
-        <h2>Attack: {variant.att}</h2>
-        <h2>Defense: {variant.defense}</h2>
-        <h2>Sp. Atk: {variant.sp_att}</h2>
-        <h2>Sp. Def: {variant.sp_def}</h2>
-        <h2>Speed: {variant.speed}</h2>
-      </div>
+      <VariantDetails variant={variant} />
+      <VariantStats variant={variant} />
     </div>
+  </div>
+)
+
+
+const VariantDetails = ( {variant} ) => (
+  <div className="border border-black w-2/3 h-full ml-2">
+    <h1 className="text-4xl">{variant.var_name}</h1>
+    <h2 className="text-4xl py-2">{variant.type_1} {variant.type_2}</h2>
+  </div>
+)
+
+const VariantStats = ( {variant} ) => (
+  <div className="border border-black w-1/4 h-full text-xl">
+    <h1>Total: {variant.total_stats}</h1>
+    <h2>HP: {variant.hp}</h2>
+    <h2>Attack: {variant.att}</h2>
+    <h2>Defense: {variant.defense}</h2>
+    <h2>Sp. Atk: {variant.sp_att}</h2>
+    <h2>Sp. Def: {variant.sp_def}</h2>
+    <h2>Speed: {variant.speed}</h2>
   </div>
 )
 
