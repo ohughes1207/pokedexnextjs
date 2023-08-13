@@ -5,7 +5,7 @@ import { useUI } from './UIContext';
 export default function Navbar() {
 
   return (
-    <header className="bg-red-500 fixed top-0 w-full items-baseline flex">
+    <header className="bg-red-500 fixed top-0 w-full items-baseline flex z-50">
       <NavigationIcon />
       <HomepageLogo />
     </header>
