@@ -6,6 +6,7 @@ import PokedexProvider from '@/components/pokedex/PokedexContext'
 import UIProvider from '@/components/UI/UIContext'
 import Sidebar from '@/components/UI/Sidebar'
 import Navbar from '@/components/UI/Navbar'
+import ScrollToTopButton from '@/components/pokedex/ScrollTopButton'
 
 
 
@@ -24,6 +25,7 @@ export default function Pokemon({ pokemonData }) {
                 <SearchMenu />
                 <PokemonList pokemonData={pokemonData}/>
             </PokedexProvider>
+            <ScrollToTopButton />
         </>
     )
 }
