@@ -3,6 +3,7 @@ import FilterPokemon from "./helpers/FilterPokemon";
 import { usePokedex } from "./PokedexContext";
 import GetTypeStyle from "./helpers/GetTypeStyle";
 
+
 export default function PokemonList ({pokemonData}) {
 
   const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega } = usePokedex();
@@ -25,26 +26,63 @@ export default function PokemonList ({pokemonData}) {
     <>
       <div className="mx-auto w-3/4 p-4 my-8 rounded-3xl bg-red-500">
         {filteredPokemonData.map((pokemon) => (
-          <div className={`my-4 flex rounded-full p-4 ${GetTypeStyle(pokemon.variants[0].type_1)}Card shadow-md`} key={pokemon.base_id}>
-            <img className='h-72 bg-black rounded-full m-4 shadow-lg' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
-            <div className="flex rounded-3xl shadow-xl ml-10">
-              <CommonAttributes pokemon={pokemon}/>
-              <UniqueAttributes pokemon={pokemon}/>
-            </div>
-          </div>
+          <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
       </div>
     </>
     );
-    }
+  }
+  
+
+
+
+
+const PokemonCard = ( {pokemon} ) => (
+  <>
+    <div className={`mt-6 flex rounded-full p-4 ${GetTypeStyle(pokemon.variants[0].type_1)}Card shadow-xl relative z-10`}>
+      <img className='h-72 bg-black rounded-full m-4 shadow-lg' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+      <div className="flex rounded-3xl shadow-xl ml-10">
+        <CommonAttributes pokemon={pokemon}/>
+        <UniqueAttributes pokemon={pokemon}/>
+      </div>
+    </div>
+    <div className={`bottom-1 mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl ${GetTypeStyle(pokemon.variants[0].type_1)}Card relative`}>
+      {pokemon.variants.map((variant) =>
+        <VariantCard variant={variant} />
+      )}
+    </div>
+  </>
+)
+
+
+const VariantCard = ( {variant} ) => (
+  <div className={`border border-black h-1/3 mx-auto my-6 flex items-center rounded-full shadow-md ${GetTypeStyle(variant.type_1)}Card`} key={variant.var_id}>
+    <img className='h-56 m-4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
+    <div className="border border-black h-56 w-2/3 rounded-3xl flex p-2 shadow-lg">
+      <div className="border border-black w-2/3 h-full ml-2">
+        <h1 className="text-4xl">{variant.var_name}</h1>
+        <h2 className="text-4xl py-2">{variant.type_1} {variant.type_2}</h2>
+      </div>
+      <div className="border border-black w-1/4 h-full text-xl">
+        <h1>Total: {variant.total_stats}</h1>
+        <h2>HP: {variant.hp}</h2>
+        <h2>Attack: {variant.att}</h2>
+        <h2>Defense: {variant.defense}</h2>
+        <h2>Sp. Atk: {variant.sp_att}</h2>
+        <h2>Sp. Def: {variant.sp_def}</h2>
+        <h2>Speed: {variant.speed}</h2>
+      </div>
+    </div>
+  </div>
+)
+
 
 const CommonAttributes = ( {pokemon} ) => (
   <div className="h-72 my-auto mx-4 w-96">
     <h1 className='text-5xl font-semibold p-2'>{pokemon.pokedex_num}</h1>
     <h1 className='text-5xl font-semibold p-2'>{pokemon.base_name}</h1>
     <div className="text-5xl font-semibold p-2 flex">
-      <h2 className=''>{pokemon.variants[0].type_1}</h2>
-      <h2 className='ml-2'>{pokemon.variants[0].type_2}</h2>
+      <h2>{pokemon.variants[0].type_1} {pokemon.variants[0].type_2}</h2>
     </div>
   </div>
 );
