@@ -33,9 +33,8 @@
     }
 }
 
-@layer pokemonTypes {
 
-  /* Card colour classes */
+@layer pokemonTypes {
   .grassCard {
     @apply bg-[#78C850]
   }
@@ -107,82 +106,86 @@
   .flyingCard {
     @apply bg-[#A890F0]
   }
+}
 
-  /* Text colour classes */
+@layer components {
+  
   .grassText {
     @apply text-[#78C850]
   }
 
   .fireText {
-    @apply text-[#F08030];
+    @apply text-[#F08030]
   }
 
   .waterText {
-    @apply text-[#6890F0];
+    @apply text-[#6890F0]
   }
 
   .bugText {
-    @apply text-[#A8B820];
+    @apply text-[#A8B820]
   }
 
   .normalText {
-    @apply text-[#A8A878];
+    @apply text-[#A8A878]
   }
 
   .poisonText {
-    @apply text-[#A040A0];
+    @apply text-[#A040A0]
   }
 
   .electricText {
-    @apply text-[#F8D030];
+    @apply text-[#F8D030]
   }
 
   .groundText {
-    @apply text-[#E0C068];
+    @apply text-[#E0C068]
   }
 
   .fairyText {
-    @apply text-[#F0B6BC];
+    @apply text-[#F0B6BC]
   }
 
   .fightingText {
-    @apply text-[#C03028];
+    @apply text-[#C03028]
   }
 
   .psychicText {
-    @apply text-[#F85888];
+    @apply text-[#F85888]
   }
 
   .darkText {
-    @apply text-[#705848];
+    @apply text-[#705848]
   }
 
   .rockText {
-    @apply text-[#B8A038];
+    @apply text-[#B8A038]
   }
 
   .dragonText {
-    @apply text-[#7038F8];
+    @apply text-[#7038F8]
   }
 
   .ghostText {
-    @apply text-[#705898];
+    @apply text-[#705898]
   }
 
   .steelText {
-    @apply text-[#B8B8D0];
+    @apply text-[#B8B8D0]
   }
 
   .iceText {
-    @apply text-[#98D8D8];
+    @apply text-[#98D8D8]
   }
 
   .flyingText {
-    @apply text-[#A890F0];
+    @apply text-[#A890F0]
   }
 }
 
-@layer scrollButton {
+
+@layer components {
+
   .scroll-top-button {
     @apply opacity-0
   }

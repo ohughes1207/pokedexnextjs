@@ -47,7 +47,7 @@ const PokemonCard = ( {pokemon} ) => {
           <UniqueAttributes pokemon={pokemon}/>
         </div>
         <button
-          className="w-48 h-48 my-auto mx-auto rounded-full shadow-md text-gray-100 flex justify-center items-center hover:bg-gray-100 hover:text-green-400 transition-all duration-500"
+          className={`w-48 h-48 my-auto mx-auto rounded-full shadow-md text-gray-100 flex justify-center items-center transition-all duration-500 hover:bg-gray-100 hover:${GetTypeStyle(pokemon.variants[0].type_1)}Text`}
           onClick={() => setVariantsVisible(!variantsVisible)}
           >
           <PiPlusBold size={180}/>
