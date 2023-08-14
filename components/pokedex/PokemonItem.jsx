@@ -38,25 +38,26 @@ export default function PokemonList ( {pokemonData} ) {
 const PokemonCard = ( {pokemon} ) => {
   const [variantsVisible, setVariantsVisible] = useState(false)
 
+
   return (
     <>
-      <div className={`mt-6 flex rounded-full p-4 ${GetTypeStyle(pokemon.variants[0].type_1)}Card shadow-xl relative z-10`}>
+      <div className={`mt-6 flex rounded-full p-4 bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10`}>
         <img className='h-72 bg-black rounded-full m-4 shadow-lg' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
         <div className="flex rounded-3xl shadow-xl ml-10">
           <CommonAttributes pokemon={pokemon}/>
           <UniqueAttributes pokemon={pokemon}/>
         </div>
         <button
-          className={`w-48 h-48 my-auto mx-auto rounded-full shadow-md text-gray-100 flex justify-center items-center transition-all duration-500 hover:bg-gray-100 hover:${GetTypeStyle(pokemon.variants[0].type_1)}Text`}
+          className={`w-48 h-48 my-auto mx-auto rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
           onClick={() => setVariantsVisible(!variantsVisible)}
           >
           <PiPlusBold size={180}/>
         </button>
       </div>
       {variantsVisible && (
-        <div className={`bottom-1 mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl ${GetTypeStyle(pokemon.variants[0].type_1)}Card relative`}>
+        <div className={`bottom-1 mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl bg-${GetTypeStyle(pokemon.variants[0].type_1)} relative`}>
           {pokemon.variants.map((variant) =>
-            <VariantCard variant={variant} />
+            <VariantCard variant={variant}/>
           )}
         </div>
       )}
@@ -66,7 +67,7 @@ const PokemonCard = ( {pokemon} ) => {
 
 
 const VariantCard = ( {variant} ) => (
-  <div className={`border border-black h-1/3 mx-auto my-6 flex items-center rounded-full shadow-md ${GetTypeStyle(variant.type_1)}Card`} key={variant.var_id}>
+  <div className={`border border-black h-1/3 mx-auto my-6 flex items-center rounded-full shadow-md bg-${GetTypeStyle(variant.type_1)}`} key={variant.var_id}>
     <img className='h-56 m-4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
     <div className="border border-black h-56 w-2/3 rounded-3xl flex p-2 shadow-lg">
       <VariantDetails variant={variant} />
@@ -101,9 +102,6 @@ const CommonAttributes = ( {pokemon} ) => (
   <div className="h-72 my-auto mx-4 w-96">
     <h1 className='text-5xl font-semibold p-2'>{pokemon.pokedex_num}</h1>
     <h1 className='text-5xl font-semibold p-2'>{pokemon.base_name}</h1>
-    <div className="text-5xl font-semibold p-2 flex">
-      <h2>{pokemon.variants[0].type_1} {pokemon.variants[0].type_2}</h2>
-    </div>
   </div>
 );
 

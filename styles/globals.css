@@ -19,170 +19,19 @@
 */
 
 @layer components {
-
-    .sidebar-icon {
-        @apply relative flex items-center justify-center
-               h-24 w-24 m-2 mx-auto bg-red-500 text-gray-100
-               hover:text-red-500 hover:bg-gray-100 rounded
-                hover:rounded-3xl transition-all duration-300 ease-linear
-                cursor-pointer shadow-lg
+  
+  .sidebar-icon {
+    @apply  relative flex items-center justify-center
+            h-24 w-24 m-2 mx-auto bg-red-500 text-gray-100
+          hover:text-red-500 hover:bg-gray-100 rounded
+            hover:rounded-3xl transition-all duration-300 ease-linear
+            cursor-pointer shadow-lg
     }
 
     .sidebar-tooltip {
       @apply absolute w-auto p-2 m-2 min-w-max left-28 rounded-md shadow-md text-gray-100 bg-gray-800 text-xs font-bold transition-all duration-300 scale-0 origin-left
     }
 }
-
-
-@layer pokemonTypes {
-  .grassCard {
-    @apply bg-[#78C850]
-  }
-
-  .fireCard {
-    @apply bg-[#F08030]
-  }
-
-  .waterCard {
-    @apply bg-[#6890F0]
-  }
-
-  .bugCard {
-    @apply bg-[#A8B820]
-  }
-
-  .normalCard {
-    @apply bg-[#A8A878]
-  }
-
-  .poisonCard {
-    @apply bg-[#A040A0]
-  }
-
-  .electricCard {
-    @apply bg-[#F8D030]
-  }
-
-  .groundCard {
-    @apply bg-[#E0C068]
-  }
-
-  .fairyCard {
-    @apply bg-[#F0B6BC]
-  }
-
-  .fightingCard {
-    @apply bg-[#C03028]
-  }
-
-  .psychicCard {
-    @apply bg-[#F85888]
-  }
-
-  .darkCard {
-    @apply bg-[#705848]
-  }
-
-  .rockCard {
-    @apply bg-[#B8A038]
-  }
-
-  .dragonCard {
-    @apply bg-[#7038F8]
-  }
-
-  .ghostCard {
-    @apply bg-[#705898]
-  }
-
-  .steelCard {
-    @apply bg-[#B8B8D0]
-  }
-
-  .iceCard {
-    @apply bg-[#98D8D8]
-  }
-
-  .flyingCard {
-    @apply bg-[#A890F0]
-  }
-}
-
-@layer components {
-  
-  .grassText {
-    @apply text-[#78C850]
-  }
-
-  .fireText {
-    @apply text-[#F08030]
-  }
-
-  .waterText {
-    @apply text-[#6890F0]
-  }
-
-  .bugText {
-    @apply text-[#A8B820]
-  }
-
-  .normalText {
-    @apply text-[#A8A878]
-  }
-
-  .poisonText {
-    @apply text-[#A040A0]
-  }
-
-  .electricText {
-    @apply text-[#F8D030]
-  }
-
-  .groundText {
-    @apply text-[#E0C068]
-  }
-
-  .fairyText {
-    @apply text-[#F0B6BC]
-  }
-
-  .fightingText {
-    @apply text-[#C03028]
-  }
-
-  .psychicText {
-    @apply text-[#F85888]
-  }
-
-  .darkText {
-    @apply text-[#705848]
-  }
-
-  .rockText {
-    @apply text-[#B8A038]
-  }
-
-  .dragonText {
-    @apply text-[#7038F8]
-  }
-
-  .ghostText {
-    @apply text-[#705898]
-  }
-
-  .steelText {
-    @apply text-[#B8B8D0]
-  }
-
-  .iceText {
-    @apply text-[#98D8D8]
-  }
-
-  .flyingText {
-    @apply text-[#A890F0]
-  }
-}
-
 
 @layer components {
 
