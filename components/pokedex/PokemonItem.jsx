@@ -82,7 +82,7 @@ const PokemonCard = ( {pokemon} ) => {
           className={`w-48 h-48 my-auto mx-auto rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
           onClick={() => setVariantsVisible(!variantsVisible)}
           >
-          <PiPlusBold size={180}/>
+          <PiPlusBold size={190}/>
         </button>
       </div>
       {variantsVisible && (
