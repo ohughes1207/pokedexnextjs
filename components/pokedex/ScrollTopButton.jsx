@@ -36,7 +36,7 @@ export default function ScrollToTopButton () {
 
     return (
         <button 
-            className={`fixed bottom-8 right-16 rounded-md w-24 h-24 mx-auto flex justify-center transition-all duration-500 items-center text-gray-100 bg-red-500 hover:bg-gray-100 hover:text-red-500 scroll-top-button ${isVisible ? 'visible' : ''}`}
+            className={`fixed bottom-8 right-16 rounded-md w-24 h-24 mx-auto flex justify-center transition-all duration-500 items-center text-gray-100 bg-red-500 hover:bg-gray-100 hover:text-red-500 scroll-top-button ${isVisible ? 'visible' : 'invisible'}`}
             onClick={scrollToTop}
             >
             <BiSolidUpArrow size={90}/> 
