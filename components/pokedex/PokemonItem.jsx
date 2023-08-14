@@ -3,11 +3,17 @@ import FilterPokemon from "./helpers/FilterPokemon";
 import { usePokedex } from "./PokedexContext";
 import GetTypeStyle from "./helpers/GetTypeStyle";
 import { PiPlusBold } from "react-icons/pi"
+import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
 
 
 export default function PokemonList ( {pokemonData} ) {
 
   const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega } = usePokedex();
+
+  var page = 1;
+
+  const NextPage = ( {page} ) => {
+  }
   
   const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
 
@@ -29,15 +35,40 @@ export default function PokemonList ( {pokemonData} ) {
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
+        <div className="mx-auto border border-black my-12 flex justify-center text-gray-100">
+          <PageMenu />
+        </div>
       </div>
     </>
     );
   }
 
+const PageMenu = () => {
+
+  return (
+    <>
+      <div className="border border-black">
+        <button>
+          <BiSolidLeftArrow size={90}/>
+        </button>
+      </div>
+      <div className="mx-20 my-auto border border-black">
+        {1} / {10}
+      </div>
+      <div className="border border-black rounded">
+        <button>
+          <BiSolidRightArrow size={90}/>
+        </button>
+      </div>
+    </>
+
+  )
+}
+
+
 
 const PokemonCard = ( {pokemon} ) => {
   const [variantsVisible, setVariantsVisible] = useState(false)
-
 
   return (
     <>
@@ -57,7 +88,7 @@ const PokemonCard = ( {pokemon} ) => {
       {variantsVisible && (
         <div className={`bottom-1 mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl bg-${GetTypeStyle(pokemon.variants[0].type_1)} relative`}>
           {pokemon.variants.map((variant) =>
-            <VariantCard variant={variant}/>
+            <VariantCard variant={variant} key={variant.var_id}/>
           )}
         </div>
       )}
