@@ -90,6 +90,7 @@ const GenFilter = () => {
 }
 
 const TypeFilter = ( {TFilter }) => {
+  
   const handleInputChange = (e) => {
     TFilter(e.target.value);
   };
