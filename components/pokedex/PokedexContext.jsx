@@ -18,6 +18,7 @@ export default function PokedexProvider( {children} ) {
     const [isMythical, setIsMythical] = useState(false);
     const [isRegional, setIsRegional] = useState(false);
     const [isMega, setIsMega] = useState(false);
+    const [pageNum, setPage] = useState(1)
 
     return (
         <PokedexContext.Provider
@@ -44,6 +45,8 @@ export default function PokedexProvider( {children} ) {
             setIsRegional,
             isMega,
             setIsMega,
+            pageNum,
+            setPage
           }}
         >
           {children}

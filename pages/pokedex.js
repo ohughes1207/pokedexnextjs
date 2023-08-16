@@ -10,7 +10,7 @@ import ScrollToTopButton from '@/components/pokedex/ScrollTopButton'
 
 
 
-export default function Pokemon({ pokemonData }) {
+export default function Pokemon({ pokemonData, maxPages }) {
     return (
         <>
             <Head>
@@ -21,9 +21,9 @@ export default function Pokemon({ pokemonData }) {
                 <Navbar />
                 <Sidebar />
             </UIProvider>
-            <PokedexProvider >
+            <PokedexProvider>
                 <SearchMenu />
-                <PokemonList pokemonData={pokemonData}/>
+                <PokemonList pokemonData={pokemonData} maxPages={maxPages} />
             </PokedexProvider>
             <ScrollToTopButton />
         </>
@@ -35,12 +35,18 @@ export async function getServerSideProps() {
     const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/pokemon?page=1`)
 
     const dataFetched = await pokemonResponse.json()
+    
     const pokemonData = dataFetched.data
+    const maxPages = dataFetched.total_pages
+    const currentPage = dataFetched.page
+
+
     //console.log("pokemonData type:", typeof pokemonData);
     //console.log(process.env.NEXT_API_URL)
     return {
         props: {
             pokemonData,
+            maxPages,
         }
     }
 }

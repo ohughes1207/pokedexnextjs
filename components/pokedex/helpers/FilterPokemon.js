@@ -1,4 +1,4 @@
-export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega) {
+export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum) {
 
   const queryParams = new URLSearchParams({
     pokemon_name: searchQuery,
@@ -11,7 +11,8 @@ export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, gen
     UB: isUB,
     Myth: isMythical,
     Regional: isRegional,
-    Mega: isMega
+    Mega: isMega,
+    page: pageNum
   });
 
   const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/pokemon/filter?${queryParams}`)
@@ -28,10 +29,9 @@ export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, gen
     }
     console.log('Checkpoint 3');
     const dataFetched = await response.json();
-    const pokemonData = dataFetched.data
     //console.log('Fetched data:', data);
 
-    return pokemonData;
+    return dataFetched;
   }
   catch (e) {
     console.error('Error fetching data:', e);

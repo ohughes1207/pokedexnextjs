@@ -6,28 +6,40 @@ import { PiPlusBold } from "react-icons/pi"
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
 
 
-export default function PokemonList ( {pokemonData} ) {
+export default function PokemonList ( { pokemonData, total_pages } ) {
 
-  const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega } = usePokedex();
+  const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum, setPage } = usePokedex();
 
-  var page = 1;
-
-  const NextPage = ( {page} ) => {
-  }
   
   const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
+
+  const [maxPages, setMaxPages] = useState(total_pages)
 
   //console.log("filteredPokemonData type:", filteredPokemonData);
 
   useEffect(() => {
-    FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega)
+    FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum)
       .then(filteredData => {
-        setFilteredPokemonData(filteredData);
+        setFilteredPokemonData(filteredData.data);
+        setMaxPages(filteredData.total_pages);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-    }, [searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega]);
+    }, [searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum]);
+  
+  useEffect(() => {
+    setPage(1);}, [maxPages]);
+
+
+  
+  if (filteredPokemonData.length == 0) {
+    return (
+      <div className="mx-auto w-3/4 p-4 my-8 rounded-3xl bg-red-500">
+        <p className=" text-center text-6xl text-gray-100 py-5">No Pokemon found!</p>
+      </div>
+    )
+  } 
 
   return (
     <>
@@ -36,27 +48,40 @@ export default function PokemonList ( {pokemonData} ) {
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
         <div className="mx-auto border border-black my-12 flex justify-center text-gray-100">
-          <PageMenu />
+          <PageMenu maxPages={maxPages}/>
         </div>
       </div>
     </>
     );
   }
 
-const PageMenu = () => {
+const PageMenu = ( {maxPages} ) => {
 
+  const {pageNum, setPage} = usePokedex();
+
+  const IncrementPage = () => {
+    if (pageNum < maxPages) {
+      setPage(pageNum+1);
+    }
+  };
+
+  const DecrementPage = () => {
+    if (pageNum > 1) {
+      setPage(pageNum-1);
+    }
+  };
   return (
     <>
       <div className="border border-black">
-        <button>
+        <button onClick={DecrementPage}>
           <BiSolidLeftArrow size={90}/>
         </button>
       </div>
-      <div className="mx-20 my-auto border border-black">
-        {1} / {10}
+      <div className="mx-20 my-auto border border-black text-center w-14">
+        {pageNum} / {maxPages}
       </div>
       <div className="border border-black rounded">
-        <button>
+        <button onClick={IncrementPage}>
           <BiSolidRightArrow size={90}/>
         </button>
       </div>
@@ -85,8 +110,8 @@ const PokemonCard = ( {pokemon} ) => {
           <PiPlusBold size={190}/>
         </button>
       </div>
-      <div className={` overflow-hidden border border-black relative pb-3 transition-all ease-out duration-500 ${variantsVisible ? 'h-full bottom-3' : 'h-1 bottom-5'} }`}>
-        <div className={`bottom-1 mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl bg-${GetTypeStyle(pokemon.variants[0].type_1)} relative transition-all ease-out duration-500 transform ${variantsVisible ? 'opacity-100' : 'translate-y-[-100%] opacity-0'}} `}>
+      <div className={`overflow-hidden relative bottom-3 duration-500 ease-out origin-top ${variantsVisible ? 'max-h-[1000px]' : 'max-h-0'}`}>
+        <div className={`mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl bg-${GetTypeStyle(pokemon.variants[0].type_1)} transition-all ease-out duration-500 relative ${variantsVisible ? 'bottom-1' : ' -translate-y-full'} }`}>
           {pokemon.variants.map((variant) =>
             <VariantCard variant={variant} key={variant.var_id}/>
           )}
