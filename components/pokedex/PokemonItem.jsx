@@ -111,11 +111,13 @@ const PokemonCard = ( {pokemon} ) => {
           <PiPlusBold size={190}/>
         </button>
       </div>
-      <div className={`overflow-hidden relative bottom-3 duration-500 ease-out origin-top ${variantsVisible ? 'max-h-[1000px]' : 'max-h-0'}`}>
-        <div className={`mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl bg-${GetTypeStyle(pokemon.variants[0].type_1)} transition-all ease-out duration-500 relative ${variantsVisible ? 'bottom-1' : ' -translate-y-full'} }`}>
-          {pokemon.variants.map((variant) =>
-            <VariantCard variant={variant} key={variant.var_id}/>
-          )}
+      <div className={`overflow-hidden relative bottom-3 grid transition-all duration-500 ${variantsVisible ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'}`}>
+        <div className="">
+          <div className={`mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? '' : ''} }`}>
+            {pokemon.variants.map((variant) =>
+              <VariantCard variant={variant} key={variant.var_id}/>
+            )}
+          </div>
         </div>
       </div>
     </>
