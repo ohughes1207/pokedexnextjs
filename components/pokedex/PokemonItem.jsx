@@ -126,7 +126,7 @@ const PokemonCard = ( {pokemon} ) => {
 
 
 const VariantCard = ( {variant} ) => (
-  <div className={`k h-1/3 mx-auto my-6 flex items-center rounded-full shadow-2xl bg-${GetTypeStyle(variant.type_1)}`} key={variant.var_id}>
+  <div className={`h-1/3 mx-auto my-6 flex items-center rounded-full shadow-2xl bg-${GetTypeStyle(variant.type_1)}`} key={variant.var_id}>
     <img className='h-56 m-4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
     <div className=" h-56 w-2/3 rounded-3xl flex p-2 shadow-lg">
       <VariantDetails variant={variant} />
