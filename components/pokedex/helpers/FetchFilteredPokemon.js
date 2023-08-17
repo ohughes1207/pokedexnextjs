@@ -1,4 +1,4 @@
-export default async function FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum) {
+export default async function FetchFilteredPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum) {
 
   const queryParams = new URLSearchParams({
     pokemon_name: searchQuery,

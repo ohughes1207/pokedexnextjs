@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import FilterPokemon from "./helpers/FilterPokemon";
+import FilterPokemon from "./helpers/FetchFilteredPokemon";
 import { usePokedex } from "./PokedexContext";
 import GetTypeStyle from "./helpers/GetTypeStyle";
 import { PiPlusBold } from "react-icons/pi"
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
+import FetchFilteredPokemon from "./helpers/FetchFilteredPokemon";
 
 
 export default function PokemonList ( { pokemonData, total_pages } ) {
@@ -18,7 +19,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
   //console.log("filteredPokemonData type:", filteredPokemonData);
 
   useEffect(() => {
-    FilterPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum)
+    FetchFilteredPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum)
       .then(filteredData => {
         setFilteredPokemonData(filteredData.data);
         setMaxPages(filteredData.total_pages);
