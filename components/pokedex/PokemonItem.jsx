@@ -48,7 +48,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
-        <div className="mx-auto border border-black my-12 flex justify-center text-gray-100">
+        <div className="mx-auto my-12 flex justify-center text-gray-100">
           <PageMenu maxPages={maxPages}/>
         </div>
       </div>
@@ -73,16 +73,16 @@ const PageMenu = ( {maxPages} ) => {
   };
   return (
     <>
-      <div className="border border-black">
-        <button onClick={DecrementPage}>
+      <div className="">
+        <button onClick={DecrementPage} className=" shadow-lg transition-all duration-500 hover:bg-gray-100 hover:text-red-500 rounded-md hover:rounded-3xl">
           <BiSolidLeftArrow size={90}/>
         </button>
       </div>
-      <div className="mx-20 my-auto border border-black text-center w-14">
+      <div className="mx-20 my-auto text-center w-20 text-2xl">
         {pageNum} / {maxPages}
       </div>
-      <div className="border border-black rounded">
-        <button onClick={IncrementPage}>
+      <div className="">
+        <button onClick={IncrementPage} className="shadow-lg transition-all duration-500 hover:bg-gray-100 hover:text-red-500 rounded-md hover:rounded-3xl">
           <BiSolidRightArrow size={90}/>
         </button>
       </div>
