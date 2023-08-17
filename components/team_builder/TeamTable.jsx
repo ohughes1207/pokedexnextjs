@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TeamTable() {
   return (
-    <table className='border border-black w-3/4 mx-auto mt-56'>
+    <table className='border border-black w-5/6 mx-auto mt-56'>
         <TableColumns />
     </table>
   )
@@ -29,7 +29,7 @@ const TableColumns = () => (
             'Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting',
             'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost',
             'Dragon', 'Dark', 'Steel', 'Fairy'].map((typeName) => (
-            <TableRow key={typeName} typeName={typeName} />
+            <TableRow key={typeName} typeName={typeName} className={`${typeName.toLowerCase()}Card`}/>
             ))}
         </tbody>
     </>
@@ -38,6 +38,6 @@ const TableColumns = () => (
 
 const TableRow = ({typeName}) => (
     <tr>
-        <th className='border border-black'>{typeName}</th>
+        <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
     </tr>
 )
