@@ -37,7 +37,16 @@ const TableColumns = () => (
 
 
 const TableRow = ({typeName}) => (
-    <tr>
+    <tr className=' text-center'>
         <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>Res</td>
+        <td>Weak</td>
+        <td>Imm</td>
     </tr>
 )
