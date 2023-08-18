@@ -50,7 +50,7 @@ const Filter = ( {text, filter, setFilter } ) => {
     <div className=" mx-auto px-2">
       <span className="text-3xl mx-auto flex justify-center px-1">{text}</span>
       <button className={`flex items-center justify-center h-24 w-24 m-2 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
-        {<AiOutlineCheck size="85"/>}
+        <AiOutlineCheck size="85"/>
       </button>
     </div>
   )
