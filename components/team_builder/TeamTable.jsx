@@ -1,5 +1,6 @@
 import { useAmp } from 'next/amp'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import FetchVariant from './helpers/FetchVariant';
 
 export default function TeamTable() {
   return (
@@ -11,6 +12,7 @@ export default function TeamTable() {
 
 
 const TableColumns = () => {
+    const [searchData, setSearchData] = useState([])
     const [TM1, setTM1] = useState('');
     const [TM2, setTM2] = useState('');
     const [TM3, setTM3] = useState('');
@@ -18,6 +20,15 @@ const TableColumns = () => {
     const [TM5, setTM5] = useState('');
     const [TM6, setTM6] = useState('');
 
+    useEffect(() => {
+        FetchVariant(TM1)
+          .then(filteredData => {
+            setSearchData(filteredData);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+        }, [TM1]);
 
     const handleInputChange = (e, func) => {
         func(e.target.value);
@@ -28,11 +39,11 @@ const TableColumns = () => {
             <thead>
                 <tr>
                     <th>Move Type</th>
-                    <th className='w-32 mx-auto border border-black justify-center'>
-                        <input value={TM1} onChange={(e) => handleInputChange(e, setTM1)}>
+                    <th className='w-32 mx-auto border border-black justify-center h-16 relative'>
+                        <input className='text-center h-3/4 border border-black text-xl' value={TM1.var_name} onChange={(e) => handleInputChange(e, setTM1)} type="text" placeholder="Search Pokemon">
 
                         </input>
-                        <div></div>
+                        <SearchResultsList searchData={searchData} setFunc={setTM1}/>
                     </th>
                     <th className='border border-black'>Pokemon 2</th>
                     <th>Pokemon 3</th>
@@ -55,6 +66,19 @@ const TableColumns = () => {
         </>
     )
 }
+
+
+
+
+//{pokemon.variants.map((variant) =>}
+const SearchResultsList = ({searchData, setFunc}) => (
+
+    <div className='w-[90%] border border-black absolute mt-3 bg-slate-100 flex-col flex'>
+        {searchData?.map((variant) =>
+        <span onClick={(e) => setFunc(variant)}>{variant.var_name}</span>
+        )}
+    </div>
+)
 
 
 const TableRow = ({typeName}) => (
