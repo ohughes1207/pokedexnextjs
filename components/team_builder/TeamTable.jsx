@@ -1,6 +1,7 @@
 import { useAmp } from 'next/amp'
 import React, { useEffect, useState } from 'react'
 import FetchVariant from './helpers/FetchVariant';
+import GetVariantResist from './helpers/GetVariantResist';
 
 export default function TeamTable() {
   return (
@@ -60,7 +61,7 @@ const TableColumns = () => {
                 'Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting',
                 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost',
                 'Dragon', 'Dark', 'Steel', 'Fairy'].map((typeName) => (
-                <TableRow key={typeName} typeName={typeName} className={`${typeName.toLowerCase()}Card`}/>
+                <TableRow key={typeName} typeName={typeName} TM1={TM1} className={`${typeName.toLowerCase()}Card`}/>
                 ))}
             </tbody>
         </>
@@ -81,10 +82,10 @@ const SearchResultsList = ({searchData, setFunc}) => (
 )
 
 
-const TableRow = ({typeName}) => (
+const TableRow = ({typeName, TM1}) => (
     <tr className=' text-center'>
         <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
-        <td>1</td>
+        <td>{GetVariantResist(TM1, typeName.toLowerCase())}</td>
         <td>2</td>
         <td>3</td>
         <td>4</td>
