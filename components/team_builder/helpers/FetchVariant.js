@@ -9,14 +9,14 @@ export default async function FetchVariant(searchQuery) {
     console.log(url);
   
     try {
-      console.log('Checkpoint 1');
+      //console.log('Checkpoint 1');
   
       const response = await fetch(url);
       if (!response.ok) {
-        console.log('Checkpoint 2');
+        //console.log('Checkpoint 2');
         throw new Error('Network response was not ok');
       }
-      console.log('Checkpoint 3');
+      //console.log('Checkpoint 3');
       const dataFetched = await response.json();
       //console.log('Fetched data:', data);
   
