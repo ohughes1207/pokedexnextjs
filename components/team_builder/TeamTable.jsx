@@ -1,11 +1,10 @@
-import { useAmp } from 'next/amp'
 import React, { useEffect, useState } from 'react'
 import FetchVariant from './helpers/FetchVariant';
 import GetVariantResist from './helpers/GetVariantResist';
 
 export default function TeamTable() {
   return (
-    <table className='border border-black w-5/6 mx-auto mt-56'>
+    <table className='border border-black mx-auto mt-56'>
         <TableColumns />
     </table>
   )
@@ -68,8 +67,8 @@ const TeamMember = ({setFunc, TM}) => {
       };
     return (
 
-        <th className='w-32 mx-auto border border-black justify-center h-16 relative'>
-            <input className='text-center h-3/4 border border-black text-xl' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+        <th className=' mx-auto border border-black justify-center relative'>
+            <input className='text-center border border-black' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
