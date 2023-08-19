@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import FetchVariant from './helpers/FetchVariant';
 import GetVariantResist from './helpers/GetVariantResist';
+import GetTotalResist from './helpers/GetTotalResist';
+import GetTotalWeak from './helpers/GetTotalWeakness';
+import GetTotalImmune from './helpers/GetTotalImmune';
 
 export default function TeamTable() {
   return (
@@ -68,7 +71,7 @@ const TeamMember = ({setFunc, TM}) => {
     return (
 
         <th className=' mx-auto border border-black justify-center relative'>
-            <input className='text-center border border-black' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+            <input className='text-center border border-black w-54' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
@@ -82,23 +85,27 @@ const SearchResultsList = ({searchData, setFunc}) => (
 
     <div className='w-[90%] border border-black absolute mt-3 bg-slate-100 flex-col flex'>
         {searchData?.map((variant) =>
-        <span onClick={(e) => setFunc(variant)}>{variant.var_name}</span>
+        <button onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
         )}
     </div>
 )
 
 
-const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => (
-    <tr className=' text-center'>
-        <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
-        <td>{GetVariantResist(TM1, typeName.toLowerCase())}</td>
-        <td>{GetVariantResist(TM2, typeName.toLowerCase())}</td>
-        <td>{GetVariantResist(TM3, typeName.toLowerCase())}</td>
-        <td>{GetVariantResist(TM4, typeName.toLowerCase())}</td>
-        <td>{GetVariantResist(TM5, typeName.toLowerCase())}</td>
-        <td>{GetVariantResist(TM6, typeName.toLowerCase())}</td>
-        <td>Res</td>
-        <td>Weak</td>
-        <td>Imm</td>
-    </tr>
-)
+const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
+    const Team = [TM1, TM2, TM3, TM4, TM5, TM6]
+
+    return (
+        <tr className='text-center'>
+            <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
+            <td>{GetVariantResist(TM1, typeName.toLowerCase())}</td>
+            <td>{GetVariantResist(TM2, typeName.toLowerCase())}</td>
+            <td>{GetVariantResist(TM3, typeName.toLowerCase())}</td>
+            <td>{GetVariantResist(TM4, typeName.toLowerCase())}</td>
+            <td>{GetVariantResist(TM5, typeName.toLowerCase())}</td>
+            <td>{GetVariantResist(TM6, typeName.toLowerCase())}</td>
+            <td>{GetTotalResist(Team, typeName.toLowerCase())}</td>
+            <td>{GetTotalWeak(Team, typeName.toLowerCase())}</td>
+            <td>{GetTotalImmune(Team, typeName.toLowerCase())}</td>
+        </tr>
+    )
+}
