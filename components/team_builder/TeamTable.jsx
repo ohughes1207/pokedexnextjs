@@ -13,7 +13,6 @@ export default function TeamTable() {
 
 
 const TableColumns = () => {
-    const [searchData, setSearchData] = useState([])
     const [TM1, setTM1] = useState('');
     const [TM2, setTM2] = useState('');
     const [TM3, setTM3] = useState('');
@@ -21,36 +20,18 @@ const TableColumns = () => {
     const [TM5, setTM5] = useState('');
     const [TM6, setTM6] = useState('');
 
-    useEffect(() => {
-        FetchVariant(TM1)
-          .then(filteredData => {
-            setSearchData(filteredData);
-          })
-          .catch(error => {
-            console.error('Error fetching data:', error);
-          });
-        }, [TM1]);
-
-    const handleInputChange = (e, func) => {
-        func(e.target.value);
-      };
     
     return (
         <>
             <thead>
                 <tr>
                     <th>Move Type</th>
-                    <th className='w-32 mx-auto border border-black justify-center h-16 relative'>
-                        <input className='text-center h-3/4 border border-black text-xl' value={TM1.var_name} onChange={(e) => handleInputChange(e, setTM1)} type="text" placeholder="Search Pokemon">
-
-                        </input>
-                        <SearchResultsList searchData={searchData} setFunc={setTM1}/>
-                    </th>
-                    <th className='border border-black'>Pokemon 2</th>
-                    <th>Pokemon 3</th>
-                    <th>Pokemon 4</th>
-                    <th>Pokemon 5</th>
-                    <th>Pokemon 6</th>
+                    <TeamMember  setFunc={setTM1} TM={TM1}/>
+                    <TeamMember  setFunc={setTM2} TM={TM2}/>
+                    <TeamMember  setFunc={setTM3} TM={TM3}/>
+                    <TeamMember  setFunc={setTM4} TM={TM4}/>
+                    <TeamMember  setFunc={setTM5} TM={TM5}/>
+                    <TeamMember  setFunc={setTM6} TM={TM6}/>
                     <th>Total Resistances</th>
                     <th>Total Weaknesses</th>
                     <th>Total Immunities</th>
@@ -68,7 +49,33 @@ const TableColumns = () => {
     )
 }
 
+const TeamMember = ({setFunc, TM}) => {
+    const [searchData, setSearchData] = useState([])
 
+
+    useEffect(() => {
+        FetchVariant(TM)
+          .then(filteredData => {
+            setSearchData(filteredData);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+        }, [TM]);
+
+    const handleInputChange = (e, func) => {
+        func(e.target.value);
+      };
+    return (
+
+        <th className='w-32 mx-auto border border-black justify-center h-16 relative'>
+            <input className='text-center h-3/4 border border-black text-xl' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+            </input>
+
+            <SearchResultsList searchData={searchData} setFunc={setFunc}/>
+        </th>
+    )
+}
 
 
 //{pokemon.variants.map((variant) =>}
