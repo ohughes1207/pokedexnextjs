@@ -42,7 +42,7 @@ const TableColumns = () => {
                 'Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting',
                 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost',
                 'Dragon', 'Dark', 'Steel', 'Fairy'].map((typeName) => (
-                <TableRow key={typeName} typeName={typeName} TM1={TM1} className={`${typeName.toLowerCase()}Card`}/>
+                <TableRow key={typeName} typeName={typeName} TM1={TM1} TM2={TM2} TM3={TM3} TM4={TM4} TM5={TM5} TM6={TM6} className={`${typeName.toLowerCase()}Card`}/>
                 ))}
             </tbody>
         </>
@@ -89,15 +89,15 @@ const SearchResultsList = ({searchData, setFunc}) => (
 )
 
 
-const TableRow = ({typeName, TM1}) => (
+const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => (
     <tr className=' text-center'>
         <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
         <td>{GetVariantResist(TM1, typeName.toLowerCase())}</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
+        <td>{GetVariantResist(TM2, typeName.toLowerCase())}</td>
+        <td>{GetVariantResist(TM3, typeName.toLowerCase())}</td>
+        <td>{GetVariantResist(TM4, typeName.toLowerCase())}</td>
+        <td>{GetVariantResist(TM5, typeName.toLowerCase())}</td>
+        <td>{GetVariantResist(TM6, typeName.toLowerCase())}</td>
         <td>Res</td>
         <td>Weak</td>
         <td>Imm</td>
