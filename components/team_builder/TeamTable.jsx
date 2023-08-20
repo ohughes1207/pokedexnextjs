@@ -7,7 +7,7 @@ import GetTotalImmune from './helpers/GetTotalImmune';
 
 export default function TeamTable() {
   return (
-    <table className='border border-black mx-auto mt-56 w-5/6'>
+    <table className=' mx-auto mt-56 w-5/6'>
         <TableColumns />
     </table>
   )
@@ -68,8 +68,8 @@ const TeamMember = ({setFunc, TM}) => {
         func(e.target.value);
       };
     return (
-        <th className='mx-auto border border-black justify-center relative w-fit'>
-            <input className='text-center border border-black w-full' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+        <th className='mx-auto justify-center relative w-fit'>
+            <input className='text-center w-full' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
@@ -80,9 +80,9 @@ const TeamMember = ({setFunc, TM}) => {
 
 
 const SearchResultsList = ({searchData, setFunc}) => (
-    <div className={`relative bottom-0 grid transition-all duration-1000  ${searchData ? 'grid-rows-[minmax(0,1fr)]' : 'grid-rows-[minmax(0,0fr)]'} `}>
-        <div className="">
-            <div className={`w-full border border-black bg-slate-100 max-h-60  flex-col flex overflow-y-scroll absolute top-full transition-all duration-1000 ${searchData ? 'translate-y-0' : '-translate-y-full'} `}>
+    <div className={`grid transition-all duration-1000  ${searchData ? 'grid-rows-[minmax(0,1fr)]' : 'grid-rows-[minmax(0,0fr)]'} `}>
+        <div className=" overflow-hidden">
+            <div className={`w-full bg-slate-100 max-h-60  flex-col flex overflow-y-scroll absolute top-full transition-all duration-1000 ${searchData ? 'translate-y-0' : '-translate-y-full'} `}>
                 {searchData?.map((variant) =>
                 <button className='text-sm border border-black py-0.5' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
                 )}
