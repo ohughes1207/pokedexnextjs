@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import FetchVariant from './helpers/FetchVariant';
 import GetVariantResist from './helpers/GetVariantResist';
 import GetTotalResist from './helpers/GetTotalResist';
@@ -7,7 +7,7 @@ import GetTotalImmune from './helpers/GetTotalImmune';
 
 export default function TeamTable() {
   return (
-    <table className='border border-black mx-auto mt-56'>
+    <table className='border border-black mx-auto mt-56 rounded-3xl'>
         <TableColumns />
     </table>
   )
@@ -34,9 +34,9 @@ const TableColumns = () => {
                     <TeamMember  setFunc={setTM4} TM={TM4}/>
                     <TeamMember  setFunc={setTM5} TM={TM5}/>
                     <TeamMember  setFunc={setTM6} TM={TM6}/>
-                    <th>Total Resistances</th>
-                    <th>Total Weaknesses</th>
-                    <th>Total Immunities</th>
+                    <th className='border border-black'>Total Resistances</th>
+                    <th className='border border-black'>Total Weaknesses</th>
+                    <th className='border border-black'>Total Immunities</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,7 +54,6 @@ const TableColumns = () => {
 const TeamMember = ({setFunc, TM}) => {
     const [searchData, setSearchData] = useState([])
 
-
     useEffect(() => {
         FetchVariant(TM)
           .then(filteredData => {
@@ -71,7 +70,7 @@ const TeamMember = ({setFunc, TM}) => {
     return (
 
         <th className=' mx-auto border border-black justify-center relative'>
-            <input className='text-center border border-black w-54' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+            <input className='text-center border border-black w-32' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
@@ -92,20 +91,32 @@ const SearchResultsList = ({searchData, setFunc}) => (
 
 
 const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
+
     const Team = [TM1, TM2, TM3, TM4, TM5, TM6]
+
+    const TM1Resists = useMemo(() => GetVariantResist(TM1, typeName.toLowerCase()), [TM1]);
+    const TM2Resists = useMemo(() => GetVariantResist(TM2, typeName.toLowerCase()), [TM2]);
+    const TM3Resists = useMemo(() => GetVariantResist(TM3, typeName.toLowerCase()), [TM3]);
+    const TM4Resists = useMemo(() => GetVariantResist(TM4, typeName.toLowerCase()), [TM4]);
+    const TM5Resists = useMemo(() => GetVariantResist(TM5, typeName.toLowerCase()), [TM5]);
+    const TM6Resists = useMemo(() => GetVariantResist(TM6, typeName.toLowerCase()), [TM6])
+
+    const totalResist = useMemo(() => GetTotalResist(Team, typeName.toLowerCase()), [Team]);
+    const totalWeak = useMemo(() => GetTotalWeak(Team, typeName.toLowerCase()), [Team]);
+    const totalImmune = useMemo(() => GetTotalImmune(Team, typeName.toLowerCase()), [Team]);
 
     return (
         <tr className='text-center'>
             <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
-            <td>{GetVariantResist(TM1, typeName.toLowerCase())}</td>
-            <td>{GetVariantResist(TM2, typeName.toLowerCase())}</td>
-            <td>{GetVariantResist(TM3, typeName.toLowerCase())}</td>
-            <td>{GetVariantResist(TM4, typeName.toLowerCase())}</td>
-            <td>{GetVariantResist(TM5, typeName.toLowerCase())}</td>
-            <td>{GetVariantResist(TM6, typeName.toLowerCase())}</td>
-            <td>{GetTotalResist(Team, typeName.toLowerCase())}</td>
-            <td>{GetTotalWeak(Team, typeName.toLowerCase())}</td>
-            <td>{GetTotalImmune(Team, typeName.toLowerCase())}</td>
+            <td className=' border-r'>{TM1Resists}</td>
+            <td className=' border-r'>{TM2Resists}</td>
+            <td className=' border-r'>{TM3Resists}</td>
+            <td className=' border-r'>{TM4Resists}</td>
+            <td className=' border-r'>{TM5Resists}</td>
+            <td className=' border-r'>{TM6Resists}</td>
+            <td className=' border-r'>{totalResist}</td>
+            <td className=' border-r'>{totalWeak}</td>
+            <td className=' border-r'>{totalImmune}</td>
         </tr>
     )
 }
