@@ -7,7 +7,7 @@ import GetTotalImmune from './helpers/GetTotalImmune';
 
 export default function TeamTable() {
   return (
-    <table className='border border-black mx-auto mt-56 rounded-3xl'>
+    <table className='border border-black mx-auto mt-56 w-5/6'>
         <TableColumns />
     </table>
   )
@@ -34,9 +34,9 @@ const TableColumns = () => {
                     <TeamMember  setFunc={setTM4} TM={TM4}/>
                     <TeamMember  setFunc={setTM5} TM={TM5}/>
                     <TeamMember  setFunc={setTM6} TM={TM6}/>
-                    <th className='border border-black'>Total Resistances</th>
-                    <th className='border border-black'>Total Weaknesses</th>
-                    <th className='border border-black'>Total Immunities</th>
+                    <th className='border border-black w-fit'>Total Resistances</th>
+                    <th className='border border-black w-fit'>Total Weaknesses</th>
+                    <th className='border border-black w-fit'>Total Immunities</th>
                 </tr>
             </thead>
             <tbody>
@@ -69,8 +69,8 @@ const TeamMember = ({setFunc, TM}) => {
       };
     return (
 
-        <th className=' mx-auto border border-black justify-center relative'>
-            <input className='text-center border border-black w-32' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+        <th className=' mx-auto border border-black justify-center relative w-fit'>
+            <input className='text-center border border-black w-full' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
@@ -79,12 +79,11 @@ const TeamMember = ({setFunc, TM}) => {
 }
 
 
-//{pokemon.variants.map((variant) =>}
 const SearchResultsList = ({searchData, setFunc}) => (
 
-    <div className='w-[90%] border border-black absolute mt-3 bg-slate-100 flex-col flex'>
+    <div className='w-full border border-black absolute mt-3 bg-slate-100 flex-col flex overflow-y-scroll h-[50vh]'>
         {searchData?.map((variant) =>
-        <button onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
+        <button className='text-sm border border-black py-0.5' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
         )}
     </div>
 )
@@ -108,15 +107,15 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
     return (
         <tr className='text-center'>
             <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
-            <td className=' border-r'>{TM1Resists}</td>
-            <td className=' border-r'>{TM2Resists}</td>
-            <td className=' border-r'>{TM3Resists}</td>
-            <td className=' border-r'>{TM4Resists}</td>
-            <td className=' border-r'>{TM5Resists}</td>
-            <td className=' border-r'>{TM6Resists}</td>
-            <td className=' border-r'>{totalResist}</td>
-            <td className=' border-r'>{totalWeak}</td>
-            <td className=' border-r'>{totalImmune}</td>
+            <td className=''>{TM1Resists}</td>
+            <td className=''>{TM2Resists}</td>
+            <td className=''>{TM3Resists}</td>
+            <td className=''>{TM4Resists}</td>
+            <td className=''>{TM5Resists}</td>
+            <td className=''>{TM6Resists}</td>
+            <td className=''>{totalResist}</td>
+            <td className=''>{totalWeak}</td>
+            <td className=''>{totalImmune}</td>
         </tr>
     )
 }
