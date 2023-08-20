@@ -81,11 +81,11 @@ const TeamMember = ({setFunc, TM}) => {
 
 const SearchResultsList = ({searchData, setFunc}) => (
 
-    <div className={`w-full border border-black absolute top-full transition-all duration-500 grid ${searchData ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'} `}>
-        <div className=' overflow-hidden'>
-            <div className={` bg-slate-100 max-h-60  flex-col flex overflow-y-scroll transition-all duration-500 ${searchData ? ' translate-y-0' : ' -translate-y-full'}`}>
+    <div className={`w-full border border-black absolute top-full transition-all duration-500 grid ${searchData ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,1fr)]'} `}>
+        <div className=' overflow-hidden '>
+            <div className={` bg-gray-100 max-h-60 flex-col flex overflow-y-scroll transition-all duration-500 ${searchData ? ' translate-y-0' : ' -translate-y-full'}`}>
                 {searchData?.map((variant) =>
-                <button className='text-sm border border-black py-0.5' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
+                <button className='transition-all duration-300 text-sm border border-black py-0.5 hover:bg-red-500 hover:text-gray-100' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
                 )}
             </div>
         </div>
