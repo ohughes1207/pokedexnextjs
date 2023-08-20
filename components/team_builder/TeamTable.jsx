@@ -68,23 +68,26 @@ const TeamMember = ({setFunc, TM}) => {
         func(e.target.value);
       };
     return (
-
-        <th className=' mx-auto border border-black justify-center relative w-fit'>
+        <th className='mx-auto border border-black justify-center relative w-fit'>
             <input className='text-center border border-black w-full' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
         </th>
+
     )
 }
 
 
 const SearchResultsList = ({searchData, setFunc}) => (
-
-    <div className='w-full border border-black absolute mt-3 bg-slate-100 flex-col flex overflow-y-scroll h-[50vh]'>
-        {searchData?.map((variant) =>
-        <button className='text-sm border border-black py-0.5' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
-        )}
+    <div className={`relative bottom-0 grid transition-all duration-1000  ${searchData ? 'grid-rows-[minmax(0,1fr)]' : 'grid-rows-[minmax(0,0fr)]'} `}>
+        <div className="">
+            <div className={`w-full border border-black bg-slate-100 max-h-60  flex-col flex overflow-y-scroll absolute top-full transition-all duration-1000 ${searchData ? 'translate-y-0' : '-translate-y-full'} `}>
+                {searchData?.map((variant) =>
+                <button className='text-sm border border-black py-0.5' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
+                )}
+            </div>
+        </div>
     </div>
 )
 
@@ -106,7 +109,7 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
 
     return (
         <tr className='text-center'>
-            <th className={` border border-black bg-${typeName.toLowerCase()} `}>{typeName}</th>
+            <th className={` border border-black bg-${typeName.toLowerCase()}  py-0.5`}>{typeName}</th>
             <td className=''>{TM1Resists}</td>
             <td className=''>{TM2Resists}</td>
             <td className=''>{TM3Resists}</td>
