@@ -4,6 +4,8 @@ import GetVariantResist from './helpers/GetVariantResist';
 import GetTotalResist from './helpers/GetTotalResist';
 import GetTotalWeak from './helpers/GetTotalWeakness';
 import GetTotalImmune from './helpers/GetTotalImmune';
+import GetTypeStyle from "../pokedex/helpers/GetTypeStyle";
+
 
 export default function TeamTable() {
   return (
@@ -68,8 +70,8 @@ const TeamMember = ({setFunc, TM}) => {
         func(e.target.value);
       };
     return (
-        <th className='mx-auto justify-center relative w-fit border border-black'>
-            <input className='text-center w-full' value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+        <th className={`mx-auto justify-center relative w-fit border border-black ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-gray-100'} `}>
+            <input className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-gray-100'}`} value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
