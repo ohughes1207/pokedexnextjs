@@ -33,7 +33,7 @@ const TableColumns = () => {
         <>
             <thead>
                 <tr>
-                    <th className='border-2 border-r-2 border-slate-200'>Move Type</th>
+                    <th className='border-2 border-slate-200'>Move Type</th>
                     <TeamMember  setFunc={setTM1} TM={TM1}/>
                     <TeamMember  setFunc={setTM2} TM={TM2}/>
                     <TeamMember  setFunc={setTM3} TM={TM3}/>
