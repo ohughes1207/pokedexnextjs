@@ -91,7 +91,7 @@ const SearchResultsList = ({searchData, setFunc}) => (
         <div className=' overflow-hidden '>
             <div className={` bg-gray-100 max-h-[50vh] flex-col flex overflow-y-scroll transition-all duration-500 ${searchData ? ' translate-y-0' : ' -translate-y-full'}`}>
                 {searchData?.map((variant) =>
-                <button className='transition-all duration-300 text-sm py-0.5 hover:bg-red-500 hover:text-gray-100' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
+                <button key={variant.var_id} className='transition-all duration-300 text-sm py-0.5 hover:bg-red-500 hover:text-gray-100' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
                 )}
             </div>
         </div>
