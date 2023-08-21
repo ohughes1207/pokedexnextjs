@@ -103,18 +103,18 @@ const SearchResultsList = ({searchData, setFunc}) => (
 
 const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
 
-    const Team = [TM1, TM2, TM3, TM4, TM5, TM6]
+    const Team = useMemo(() => [TM1, TM2, TM3, TM4, TM5, TM6], [TM1, TM2, TM3, TM4, TM5, TM6])
 
-    const TM1Resists = useMemo(() => GetVariantResist(TM1, typeName.toLowerCase()), [TM1]);
-    const TM2Resists = useMemo(() => GetVariantResist(TM2, typeName.toLowerCase()), [TM2]);
-    const TM3Resists = useMemo(() => GetVariantResist(TM3, typeName.toLowerCase()), [TM3]);
-    const TM4Resists = useMemo(() => GetVariantResist(TM4, typeName.toLowerCase()), [TM4]);
-    const TM5Resists = useMemo(() => GetVariantResist(TM5, typeName.toLowerCase()), [TM5]);
-    const TM6Resists = useMemo(() => GetVariantResist(TM6, typeName.toLowerCase()), [TM6]);
+    const TM1Resists = useMemo(() => GetVariantResist(TM1, typeName.toLowerCase()), [TM1, typeName]);
+    const TM2Resists = useMemo(() => GetVariantResist(TM2, typeName.toLowerCase()), [TM2, typeName]);
+    const TM3Resists = useMemo(() => GetVariantResist(TM3, typeName.toLowerCase()), [TM3, typeName]);
+    const TM4Resists = useMemo(() => GetVariantResist(TM4, typeName.toLowerCase()), [TM4, typeName]);
+    const TM5Resists = useMemo(() => GetVariantResist(TM5, typeName.toLowerCase()), [TM5, typeName]);
+    const TM6Resists = useMemo(() => GetVariantResist(TM6, typeName.toLowerCase()), [TM6, typeName]);
 
-    const totalResist = useMemo(() => GetTotalResist(Team, typeName.toLowerCase()), [Team]);
-    const totalWeak = useMemo(() => GetTotalWeak(Team, typeName.toLowerCase()), [Team]);
-    const totalImmune = useMemo(() => GetTotalImmune(Team, typeName.toLowerCase()), [Team]);
+    const totalResist = useMemo(() => GetTotalResist(Team, typeName.toLowerCase()), [Team, typeName]);
+    const totalWeak = useMemo(() => GetTotalWeak(Team, typeName.toLowerCase()), [Team, typeName]);
+    const totalImmune = useMemo(() => GetTotalImmune(Team, typeName.toLowerCase()), [Team, typeName]);
 
 
     const TM1ResistStyle = useMemo(() => GetTMStyle(TM1Resists), [TM1Resists]);

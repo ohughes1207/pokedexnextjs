@@ -30,7 +30,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
     }, [searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum]);
   
   useEffect(() => {
-    setPage(1);}, [maxPages]);
+    setPage(1);}, [maxPages, setPage]);
 
 
   
