@@ -13,7 +13,7 @@ import GetTMStyle from './helpers/GetTMStyle';
 
 export default function TeamTable() {
   return (
-    <table className='mx-auto w-5/6 mt-48 bg-slate-100 rounded-3xl border-2 border-slate-200'>
+    <table className='mx-auto w-5/6 mt-48 bg-slate-100 rounded-3xl border-2 border-zinc-600'>
         <TableColumns />
     </table>
   )
@@ -33,16 +33,16 @@ const TableColumns = () => {
         <>
             <thead>
                 <tr>
-                    <th className='border-2 border-slate-200'>Move Type</th>
+                    <th className='border-2 border-zinc-600'>Move Type</th>
                     <TeamMember  setFunc={setTM1} TM={TM1}/>
                     <TeamMember  setFunc={setTM2} TM={TM2}/>
                     <TeamMember  setFunc={setTM3} TM={TM3}/>
                     <TeamMember  setFunc={setTM4} TM={TM4}/>
                     <TeamMember  setFunc={setTM5} TM={TM5}/>
                     <TeamMember  setFunc={setTM6} TM={TM6}/>
-                    <th className='w-fit border-2 border-slate-200'>Total Resistances</th>
-                    <th className='w-fit border-2 border-slate-200'>Total Weaknesses</th>
-                    <th className='w-fit border-2 border-slate-200'>Total Immunities</th>
+                    <th className='w-fit border-2 border-zinc-600'>Total Resistances</th>
+                    <th className='w-fit border-2 border-zinc-600'>Total Weaknesses</th>
+                    <th className='w-fit border-2 border-zinc-600'>Total Immunities</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,7 +74,7 @@ const TeamMember = ({setFunc, TM}) => {
         func(e.target.value);
       };
     return (
-        <th className={`border-b-2 border-slate-200 mx-auto justify-center relative w-fit ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-gray-100'} `}>
+        <th className={`border-b-2 border-zinc-600 mx-auto justify-center relative w-fit ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-100'} `}>
             <input className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-gray-100'}`} value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
@@ -132,15 +132,15 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
 
     return (
         <tr className='text-center '>
-            <th className={`bg-${typeName.toLowerCase()} py-0.5 rounded-sm`}>{typeName}</th>
-            <td className={` ${TM1ResistStyle} transition-colors duration-300 border-r`}>{TM1Resists}</td>
-            <td className={` ${TM2ResistStyle}  transition-colors duration-300 border-r`}>{TM2Resists}</td>
-            <td className={` ${TM3ResistStyle}  transition-colors duration-300 border-r`}>{TM3Resists}</td>
-            <td className={` ${TM4ResistStyle}  transition-colors duration-300 border-r`}>{TM4Resists}</td>
-            <td className={` ${TM5ResistStyle}  transition-colors duration-300 border-r`}>{TM5Resists}</td>
-            <td className={` ${TM6ResistStyle}  transition-colors duration-300 border-r`}>{TM6Resists}</td>
-            <td className={` ${totalResistStyle}  transition-colors duration-300 border-r`}>{totalResist}</td>
-            <td className={` ${totalWeaknessStyle}  transition-colors duration-300 border-r`}>{totalWeak}</td>
+            <th className={`bg-${typeName.toLowerCase()} py-1 rounded-sm`}>{typeName}</th>
+            <td className={` ${TM1ResistStyle} transition-colors duration-300 border-r border-zinc-300`}>{TM1Resists}</td>
+            <td className={` ${TM2ResistStyle}  transition-colors duration-300 border-r border-zinc-300`}>{TM2Resists}</td>
+            <td className={` ${TM3ResistStyle}  transition-colors duration-300 border-r border-zinc-300`}>{TM3Resists}</td>
+            <td className={` ${TM4ResistStyle}  transition-colors duration-300 border-r border-zinc-300`}>{TM4Resists}</td>
+            <td className={` ${TM5ResistStyle}  transition-colors duration-300 border-r border-zinc-300`}>{TM5Resists}</td>
+            <td className={` ${TM6ResistStyle}  transition-colors duration-300 border-r border-zinc-300`}>{TM6Resists}</td>
+            <td className={` ${totalResistStyle}  transition-colors duration-300 border-r border-zinc-300`}>{totalResist}</td>
+            <td className={` ${totalWeaknessStyle}  transition-colors duration-300 border-r border-zinc-300`}>{totalWeak}</td>
             <td className={` ${totalImmuneStyle}  transition-colors duration-300`}>{totalImmune}</td>
         </tr>
     )
