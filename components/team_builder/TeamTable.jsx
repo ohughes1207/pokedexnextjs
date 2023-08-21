@@ -13,7 +13,7 @@ import GetTMStyle from './helpers/GetTMStyle';
 
 export default function TeamTable() {
   return (
-    <table className=' mx-auto mt-56 w-5/6'>
+    <table className=' mx-auto mt-56 w-5/6 bg-slate-100'>
         <TableColumns />
     </table>
   )
@@ -117,12 +117,12 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
     const totalImmune = useMemo(() => GetTotalImmune(Team, typeName.toLowerCase()), [Team]);
 
 
-    const TM1Style = useMemo(() => GetTMStyle(TM1Resists), [TM1Resists]);
-    const TM2Style = useMemo(() => GetTMStyle(TM2Resists), [TM2Resists]);
-    const TM3Style = useMemo(() => GetTMStyle(TM3Resists), [TM3Resists]);
-    const TM4Style = useMemo(() => GetTMStyle(TM4Resists), [TM4Resists]);
-    const TM5Style = useMemo(() => GetTMStyle(TM5Resists), [TM5Resists]);
-    const TM6Style = useMemo(() => GetTMStyle(TM6Resists), [TM6Resists]);
+    const TM1ResistStyle = useMemo(() => GetTMStyle(TM1Resists), [TM1Resists]);
+    const TM2ResistStyle = useMemo(() => GetTMStyle(TM2Resists), [TM2Resists]);
+    const TM3ResistStyle = useMemo(() => GetTMStyle(TM3Resists), [TM3Resists]);
+    const TM4ResistStyle = useMemo(() => GetTMStyle(TM4Resists), [TM4Resists]);
+    const TM5ResistStyle = useMemo(() => GetTMStyle(TM5Resists), [TM5Resists]);
+    const TM6ResistStyle = useMemo(() => GetTMStyle(TM6Resists), [TM6Resists]);
 
     const totalResistStyle = useMemo(() => GetResistStyle(totalResist), [totalResist]);
     const totalWeaknessStyle = useMemo(() => GetWeaknessStyle(totalWeak), [totalWeak]);
@@ -131,17 +131,17 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
 
 
     return (
-        <tr className='text-center'>
-            <th className={` border border-black bg-${typeName.toLowerCase()}  py-0.5`}>{typeName}</th>
-            <td className={TM1Style}>{TM1Resists}</td>
-            <td className={TM2Style}>{TM2Resists}</td>
-            <td className={TM3Style}>{TM3Resists}</td>
-            <td className={TM4Style}>{TM4Resists}</td>
-            <td className={TM5Style}>{TM5Resists}</td>
-            <td className={TM6Style}>{TM6Resists}</td>
-            <td className={totalResistStyle}>{totalResist}</td>
-            <td className={totalWeaknessStyle}>{totalWeak}</td>
-            <td className={totalImmuneStyle}>{totalImmune}</td>
+        <tr className='text-center '>
+            <th className={` border border-black bg-${typeName.toLowerCase()}  py-0.5 rounded-xl`}>{typeName}</th>
+            <td className={` ${TM1ResistStyle} transition-colors duration-300`}>{TM1Resists}</td>
+            <td className={` ${TM2ResistStyle}  transition-colors duration-300`}>{TM2Resists}</td>
+            <td className={` ${TM3ResistStyle}  transition-colors duration-300`}>{TM3Resists}</td>
+            <td className={` ${TM4ResistStyle}  transition-colors duration-300`}>{TM4Resists}</td>
+            <td className={` ${TM5ResistStyle}  transition-colors duration-300`}>{TM5Resists}</td>
+            <td className={` ${TM6ResistStyle}  transition-colors duration-300`}>{TM6Resists}</td>
+            <td className={` ${totalResistStyle}  transition-colors duration-300`}>{totalResist}</td>
+            <td className={` ${totalWeaknessStyle}  transition-colors duration-300`}>{totalWeak}</td>
+            <td className={` ${totalImmuneStyle}  transition-colors duration-300`}>{totalImmune}</td>
         </tr>
     )
 }
