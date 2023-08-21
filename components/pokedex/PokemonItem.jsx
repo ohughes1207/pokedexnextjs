@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import FilterPokemon from "./helpers/FetchFilteredPokemon";
 import { usePokedex } from "./PokedexContext";
 import GetTypeStyle from "./helpers/GetTypeStyle";
 import { PiPlusBold } from "react-icons/pi"
