@@ -3,6 +3,9 @@ import React from 'react';
 import { BsDiscord } from 'react-icons/bs'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BsGithub } from 'react-icons/bs'
+import Link from 'next/link';
+import Image from 'next/image';
+import avatar from '@/public/avatar.jpg'
 
 export default function Footer() {
   return (
@@ -14,7 +17,7 @@ export default function Footer() {
 
 const Avatar = () => (
   <div className="w-40 h-40 -mt-5">
-    <img src='avatar.jpg' alt='avatar' className='rounded-full'/>
+    <Image src={avatar} alt='avatar' className='rounded-full'/>
   </div>
 )
 
@@ -35,9 +38,9 @@ const DetailsContent = () => (
 const PlatformDetails = ({ icon, text, href }) => (
   <div className='flex items-center'>
     {icon}
-    <a href={href}>
+    <Link href={href}>
       <span className='flex pl-1'> {text} </span>
-    </a>
+    </Link>
   </div>
 )
 

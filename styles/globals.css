@@ -19,13 +19,13 @@
 */
 
 @layer components {
-
-    .sidebar-icon {
-        @apply relative flex items-center justify-center
-               h-24 w-24 m-2 mx-auto bg-red-500 text-gray-100
-               hover:text-red-500 hover:bg-gray-100 rounded
-                hover:rounded-3xl transition-all duration-300 ease-linear
-                cursor-pointer shadow-lg
+  
+  .sidebar-icon {
+    @apply  relative flex items-center justify-center
+            h-24 w-24 m-2 mx-auto bg-red-500 text-gray-100
+          hover:text-red-500 hover:bg-gray-100 rounded
+            hover:rounded-3xl transition-all duration-300 ease-linear
+            cursor-pointer shadow-lg
     }
 
     .sidebar-tooltip {
@@ -33,77 +33,13 @@
     }
 }
 
-@layer pokemonTypes {
+@layer components {
 
-    .grassCard {
-      @apply bg-[#78C850]
-    }
-
-    .fireCard {
-      @apply bg-[#F08030]
-    }
-
-    .waterCard {
-      @apply bg-[#6890F0]
-    }
-
-    .bugCard {
-      @apply bg-[#A8B820]
-    }
-
-    .normalCard {
-      @apply bg-[#A8A878]
-    }
-
-    .poisonCard {
-      @apply bg-[#A040A0]
-    }
-
-    .electricCard {
-      @apply bg-[#F8D030]
-    }
-
-    .groundCard {
-      @apply bg-[#E0C068]
-    }
-
-    .fairyCard {
-      @apply bg-[#F0B6BC]
-    }
-
-    .fightingCard {
-      @apply bg-[#C03028]
-    }
-
-    .psychicCard {
-      @apply bg-[#F85888]
-    }
-
-    .darkCard {
-      @apply bg-[#705848]
-    }
-
-    .rockCard {
-      @apply bg-[#B8A038]
-    }
-
-    .dragonCard {
-      @apply bg-[#7038F8]
-    }
-
-    .ghostCard {
-      @apply bg-[#705898]
-    }
-
-    .steelCard {
-      @apply bg-[#B8B8D0]
-    }
-
-    .iceCard {
-      @apply bg-[#98D8D8]
-    }
-
-    .flyingCard {
-      @apply bg-[#A890F0]
-    }
+  .scroll-top-button {
+    @apply opacity-0
+  }
+  
+  .scroll-top-button.visible {
+    @apply opacity-100
+  }
 }

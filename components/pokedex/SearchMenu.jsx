@@ -50,7 +50,7 @@ const Filter = ( {text, filter, setFilter } ) => {
     <div className=" mx-auto px-2">
       <span className="text-3xl mx-auto flex justify-center px-1">{text}</span>
       <button className={`flex items-center justify-center h-24 w-24 m-2 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
-        {<AiOutlineCheck size="85"/>}
+        <AiOutlineCheck size="85"/>
       </button>
     </div>
   )
@@ -75,7 +75,7 @@ const GenFilter = () => {
   };
   return (
     <select className="text-4xl m-4 mx-auto rounded-3xl text-center px-5" onChange={handleInputChange}>
-      <option value=""></option>
+      <option value="0"></option>
       <option value="1">Generation 1</option>
       <option value="2">Generation 2</option>
       <option value="3">Generation 3</option>
@@ -90,6 +90,7 @@ const GenFilter = () => {
 }
 
 const TypeFilter = ( {TFilter }) => {
+  
   const handleInputChange = (e) => {
     TFilter(e.target.value);
   };
