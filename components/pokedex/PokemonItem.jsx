@@ -4,6 +4,7 @@ import GetTypeStyle from "./helpers/GetTypeStyle";
 import { PiPlusBold } from "react-icons/pi"
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
 import FetchFilteredPokemon from "./helpers/FetchFilteredPokemon";
+import Image from "next/image";
 
 
 export default function PokemonList ( { pokemonData, total_pages } ) {

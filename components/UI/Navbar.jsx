@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa';
 import { useUI } from './UIContext';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
 
@@ -31,9 +33,9 @@ const NavigationIcon = () => {
 
 const HomepageLogo = () => (
   <div className="container h-[110px] w-[110px] relative">
-    <a href='/' className='h-[110px]'>
-      <img src="mareep-nobg.png" alt="logo" className='relative top-1 hover:brightness-[.8] transition-all duration-100'/> 
-    </a>
+    <Link href='/' className='h-fill'>
+      <Image fill={true} src="/mareep-nobg.png" alt="logo" className='relative top-1 hover:brightness-[.8] transition-all duration-100'/> 
+    </Link>
   </div>
 )
 
