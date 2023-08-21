@@ -5,6 +5,10 @@ import GetTotalResist from './helpers/GetTotalResist';
 import GetTotalWeak from './helpers/GetTotalWeakness';
 import GetTotalImmune from './helpers/GetTotalImmune';
 import GetTypeStyle from "../pokedex/helpers/GetTypeStyle";
+import GetResistStyle from './helpers/GetResistStyle';
+import GetWeaknessStyle from './helpers/GetWeaknessStyle';
+import GetImmuneStyle from './helpers/GetImmuneStyle';
+import GetTMStyle from './helpers/GetTMStyle';
 
 
 export default function TeamTable() {
@@ -106,24 +110,38 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
     const TM3Resists = useMemo(() => GetVariantResist(TM3, typeName.toLowerCase()), [TM3]);
     const TM4Resists = useMemo(() => GetVariantResist(TM4, typeName.toLowerCase()), [TM4]);
     const TM5Resists = useMemo(() => GetVariantResist(TM5, typeName.toLowerCase()), [TM5]);
-    const TM6Resists = useMemo(() => GetVariantResist(TM6, typeName.toLowerCase()), [TM6])
+    const TM6Resists = useMemo(() => GetVariantResist(TM6, typeName.toLowerCase()), [TM6]);
 
     const totalResist = useMemo(() => GetTotalResist(Team, typeName.toLowerCase()), [Team]);
     const totalWeak = useMemo(() => GetTotalWeak(Team, typeName.toLowerCase()), [Team]);
     const totalImmune = useMemo(() => GetTotalImmune(Team, typeName.toLowerCase()), [Team]);
 
+
+    const TM1Style = useMemo(() => GetTMStyle(TM1Resists), [TM1Resists]);
+    const TM2Style = useMemo(() => GetTMStyle(TM2Resists), [TM2Resists]);
+    const TM3Style = useMemo(() => GetTMStyle(TM3Resists), [TM3Resists]);
+    const TM4Style = useMemo(() => GetTMStyle(TM4Resists), [TM4Resists]);
+    const TM5Style = useMemo(() => GetTMStyle(TM5Resists), [TM5Resists]);
+    const TM6Style = useMemo(() => GetTMStyle(TM6Resists), [TM6Resists]);
+
+    const totalResistStyle = useMemo(() => GetResistStyle(totalResist), [totalResist]);
+    const totalWeaknessStyle = useMemo(() => GetWeaknessStyle(totalWeak), [totalWeak]);
+    const totalImmuneStyle = useMemo(() => GetImmuneStyle(totalImmune), [totalImmune]);
+
+
+
     return (
         <tr className='text-center'>
             <th className={` border border-black bg-${typeName.toLowerCase()}  py-0.5`}>{typeName}</th>
-            <td className=''>{TM1Resists}</td>
-            <td className=''>{TM2Resists}</td>
-            <td className=''>{TM3Resists}</td>
-            <td className=''>{TM4Resists}</td>
-            <td className=''>{TM5Resists}</td>
-            <td className=''>{TM6Resists}</td>
-            <td className=''>{totalResist}</td>
-            <td className=''>{totalWeak}</td>
-            <td className=''>{totalImmune}</td>
+            <td className={TM1Style}>{TM1Resists}</td>
+            <td className={TM2Style}>{TM2Resists}</td>
+            <td className={TM3Style}>{TM3Resists}</td>
+            <td className={TM4Style}>{TM4Resists}</td>
+            <td className={TM5Style}>{TM5Resists}</td>
+            <td className={TM6Style}>{TM6Resists}</td>
+            <td className={totalResistStyle}>{totalResist}</td>
+            <td className={totalWeaknessStyle}>{totalWeak}</td>
+            <td className={totalImmuneStyle}>{totalImmune}</td>
         </tr>
     )
 }
