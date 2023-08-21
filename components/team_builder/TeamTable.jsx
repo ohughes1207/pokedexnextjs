@@ -13,7 +13,7 @@ import GetTMStyle from './helpers/GetTMStyle';
 
 export default function TeamTable() {
   return (
-    <table className='mx-auto w-5/6 mt-48 bg-slate-100 rounded-3xl border-2 border-zinc-600'>
+    <table className='mx-auto w-5/6 mt-48 bg-slate-200 border-2 border-zinc-600'>
         <TableColumns />
     </table>
   )
@@ -74,8 +74,8 @@ const TeamMember = ({setFunc, TM}) => {
         func(e.target.value);
       };
     return (
-        <th className={`border-b-2 border-zinc-600 mx-auto justify-center relative w-fit ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-100'} `}>
-            <input className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-gray-100'}`} value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
+        <th className={`border-b-2 border-zinc-600 mx-auto justify-center relative w-fit ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'} `}>
+            <input className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'}`} value={TM.var_name} onChange={(e) => handleInputChange(e, setFunc)} type="text" placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
