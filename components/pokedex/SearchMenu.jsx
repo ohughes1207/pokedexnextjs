@@ -6,7 +6,7 @@ export default function SearchMenu () {
   const {setT1Filter, setT2Filter, setIsLegendary, isLegendary, isMythical, setIsMythical, isPseudoL, setIsPseudoL, isParadox, setIsParadox, isRegional, setIsRegional, isMega, setIsMega, isUB, setIsUB} = usePokedex()
 
   return (
-    <div className="bg-red-500 mt-32 w-min p-2 mx-auto lg:w-3/4 xl:w-11/12 rounded-3xl 2xl:w-5/6">
+    <div className="bg-red-500 mt-32 w-min p-2 mx-auto lg:w-3/4 xl:w-11/12 rounded-3xl 2xl:w-5/6 xl:h-96">
       <div className="flex flex-col xl:flex-row">
         <div className="rounded-3xl mx-auto shadow-lg w-11/12 lg:w-5/6 xl:w-fit p-4 sm:p-6 xl:py-16 h-min my-auto">
           <div className="flex justify-center">
