@@ -7,9 +7,9 @@ export default function SearchMenu () {
 
   return (
     <div className="bg-red-500 mt-32 w-min p-2 mx-auto xl:w-3/4">
-      <div className=" flex flex-col xl:flex-row">
-        <div className=" w-3/4 mx-auto rounded-3xl m-4 border border-black">
-          <div className="m-2 w-fit mx-auto">
+      <div className="flex flex-col xl:flex-row">
+        <div className="rounded-3xl m-4 border border-black mx-auto">
+          <div className="m-2">
             <SearchBar />
           </div>
           <div className="w-full mx-auto flex justify-around px-5">
@@ -20,7 +20,7 @@ export default function SearchMenu () {
             <GenFilter />
           </div>
         </div>
-        <div className="mx-auto rounded-3xl m-4 text-gray-100 flex-col border border-black">
+        <div className="mx-auto rounded-3xl m-4 text-gray-100 flex-col border border-black p-2">
           <div className="flex justify-evenly">
             <Filter text={'Legendary'} filter={isLegendary} setFilter={setIsLegendary}/>
             <Filter text={'Mythical'} filter={isMythical} setFilter={setIsMythical}/>
@@ -46,9 +46,9 @@ const Filter = ( {text, filter, setFilter } ) => {
   }; 
 
   return (
-    <div className="border border-black">
-      <span className="text-sm mx-auto text-center border border-black">{text}</span>
-      <button className={`border border-black flex items-center justify-center w-18 h-18 m-2 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
+    <div className="flex flex-col items-center justify-center m-2">
+      <span className="text-sm mx-auto text-center truncate">{text}</span>
+      <button className={` flex items-center justify-center w-16 h-16 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
         <AiOutlineCheck size="85"/>
       </button>
     </div>
