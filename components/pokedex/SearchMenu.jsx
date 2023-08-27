@@ -6,9 +6,9 @@ export default function SearchMenu () {
   const {setT1Filter, setT2Filter, setIsLegendary, isLegendary, isMythical, setIsMythical, isPseudoL, setIsPseudoL, isParadox, setIsParadox, isRegional, setIsRegional, isMega, setIsMega, isUB, setIsUB} = usePokedex()
 
   return (
-    <div className="bg-red-500 mt-32 w-4/5 mx-auto p-2 xl:w-3/4">
+    <div className="bg-red-500 mt-32 w-min p-2 mx-auto xl:w-3/4">
       <div className=" flex flex-col xl:flex-row">
-        <div className=" w-3/4 mx-auto rounded-3xl m-4">
+        <div className=" w-3/4 mx-auto rounded-3xl m-4 border border-black">
           <div className="m-2 w-fit mx-auto">
             <SearchBar />
           </div>
@@ -20,14 +20,14 @@ export default function SearchMenu () {
             <GenFilter />
           </div>
         </div>
-        <div className="w-3/4 mx-auto rounded-3xl m-4 flex text-gray-100 xl:flex-col">
-          <div className=" h-1/2 flex py-1 flex-col xl:flex-row">
+        <div className="mx-auto rounded-3xl m-4 text-gray-100 flex-col border border-black">
+          <div className="flex justify-evenly">
             <Filter text={'Legendary'} filter={isLegendary} setFilter={setIsLegendary}/>
             <Filter text={'Mythical'} filter={isMythical} setFilter={setIsMythical}/>
             <Filter text={'Ultra Beast'} filter={isUB} setFilter={setIsUB}/>
             <Filter text={'Paradox'} filter={isParadox} setFilter={setIsParadox}/>
           </div>
-          <div className="h-1/2 flex py-1 flex-col xl:flex-row">
+          <div className="flex justify-evenly">
             <Filter text={'Regional'} filter={isRegional} setFilter={setIsRegional}/>
             <Filter text={'Mega'} filter={isMega} setFilter={setIsMega}/>
             <Filter text={'Pseudo-legendary'} filter={isPseudoL} setFilter={setIsPseudoL}/>
@@ -47,8 +47,8 @@ const Filter = ( {text, filter, setFilter } ) => {
 
   return (
     <div className="border border-black">
-      <span className=" text-xl mx-auto flex justify-center px-1 text-center">{text}</span>
-      <button className={` flex items-center justify-center h-24 w-24 m-2 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
+      <span className="text-sm mx-auto text-center border border-black">{text}</span>
+      <button className={`border border-black flex items-center justify-center w-18 h-18 m-2 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
         <AiOutlineCheck size="85"/>
       </button>
     </div>
@@ -61,7 +61,7 @@ const SearchBar = () => {
     setSearchQuery(e.target.value);
   };  
   return (
-    <input className='text-center rounded-3xl xl:text-5xl' onChange={handleInputChange} type="text" placeholder="Search Pokemon"/>
+    <input className='text-center rounded-3xl xl:text-5xl text-lg' onChange={handleInputChange} type="text" placeholder="Search Pokemon"/>
   );
 }
 
@@ -73,7 +73,7 @@ const GenFilter = () => {
     setGenValue(e.target.value);
   };
   return (
-    <select className="mx-auto rounded-3xl text-center px-5 xl:text-4xl" onChange={handleInputChange}>
+    <select className="mx-auto rounded-3xl text-center px-5 text-lg xl:text-4xl" onChange={handleInputChange}>
       <option value="0"></option>
       <option value="1">Generation 1</option>
       <option value="2">Generation 2</option>
@@ -94,7 +94,7 @@ const TypeFilter = ( {TFilter }) => {
     TFilter(e.target.value);
   };
   return (
-    <select className="rounded-3xl text-center xl:text-4xl" onChange={handleInputChange}>
+    <select className="rounded-3xl text-center text-lg xl:text-4xl" onChange={handleInputChange}>
       <option value=""></option>
       <option value="normal">Normal</option>
       <option value="fire">Fire</option>
