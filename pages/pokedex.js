@@ -23,6 +23,7 @@ export default function Pokemon({ pokemonData, maxPages }) {
             </UIProvider>
             <PokedexProvider>
                 <SearchMenu />
+                <PokemonList pokemonData={pokemonData} maxPages={maxPages} />
             </PokedexProvider>
         </>
     )
