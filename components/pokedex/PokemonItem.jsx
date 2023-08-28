@@ -99,26 +99,7 @@ const PokemonCard = ( {pokemon} ) => {
   return (
     <>
       <div className={`mt-6 flex rounded-full p-4 bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10`}>
-        <img className='h-72 bg-black rounded-full m-4 shadow-lg' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
-        <div className="flex rounded-3xl shadow-xl ml-10">
-          <CommonAttributes pokemon={pokemon}/>
-          <UniqueAttributes pokemon={pokemon}/>
-        </div>
-        <button
-          className={`w-48 h-48 my-auto mx-auto rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100 ` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
-          onClick={() => setVariantsVisible(!variantsVisible)}
-          >
-          <PiPlusBold size={190} className={`transition-transform duration-500 ${variantsVisible ? 'rotate-[225deg]' : undefined} `}/>
-        </button>
-      </div>
-      <div className={`relative bottom-3 grid transition-all duration-700 ${variantsVisible ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'}`}>
-        <div className="overflow-hidden">
-          <div className={`mb-6 px-6 py-4 w-4/5 mx-auto rounded-b-3xl transition-all duration-700 bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? 'translate-y-0' : ' -translate-y-full'} }`}>
-            {pokemon.variants.map((variant) =>
-              <VariantCard variant={variant} key={variant.var_id}/>
-            )}
-          </div>
-        </div>
+
       </div>
     </>
   )
