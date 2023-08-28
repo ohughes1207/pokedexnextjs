@@ -7,12 +7,12 @@ export default function SearchMenu () {
 
   return (
     <div className="bg-red-500 mt-32 w-min p-1 mx-auto lg:w-3/4 xl:w-11/12 rounded-3xl 2xl:w-3/4 xl:h-96">
-      <div className="flex flex-col xl:flex-row">
-        <div className="rounded-3xl mx-auto shadow-lg w-11/12 lg:w-5/6 xl:w-fit p-4 sm:p-6 xl:py-8 h-min my-auto 2xl:w-[480px] 2xl:py-4">
+      <div className="flex flex-col xl:flex-row ">
+        <div className="rounded-3xl mx-auto shadow-lg w-11/12 lg:w-5/6 xl:w-fit p-4 sm:p-6 xl:py-8 h-min my-auto 2xl:w-1/3 2xl:py-4">
           <div className="flex justify-center mt-4">
             <SearchBar />
           </div>
-          <div className="flex justify-around px-5 my-2 sm:my-4 xl:my-8 2xl:px-2">
+          <div className="flex justify-around px-5 my-2 sm:my-4 xl:my-8 2xl:px-0 2xl:my-10">
             <TypeFilter TFilter={setT1Filter}/>
             <TypeFilter TFilter={setT2Filter}/>
           </div>
@@ -46,7 +46,7 @@ const Filter = ( {text, filter, setFilter } ) => {
   }; 
 
   return (
-    <div className="flex flex-col items-center justify-center mx-2">
+    <div className="flex flex-col items-center justify-center mx-2 2xl:mx-5 2xl:my-1">
       <span className="text-base mx-auto text-center truncate sm:text-2xl my-1 md:p-1 md:text-3xl">{text}</span>
       <button className={`flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
         <AiOutlineCheck size="85"/>
