@@ -44,7 +44,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
 
   return (
     <>
-      <div className="mx-auto w-3/4 p-4 my-8 rounded-3xl bg-red-500">
+      <div className="mx-auto w-5/6 p-2 my-8 rounded-3xl bg-red-500">
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
@@ -98,8 +98,27 @@ const PokemonCard = ( {pokemon} ) => {
 
   return (
     <>
-      <div className={`mt-6 flex rounded-full p-4 bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10`}>
-
+      <div className={`mt-3 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 p-2`}>
+        <img className='w-24 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+        <div className="flex rounded-3xl shadow-xl border border-black ml-2 flex-col p-2 w-1/3">
+          <CommonAttributes pokemon={pokemon}/>
+          <UniqueAttributes pokemon={pokemon}/>
+        </div>
+        <button
+          className={`w-20 h-20 my-auto ml-2 mr-2 rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100 ` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
+          onClick={() => setVariantsVisible(!variantsVisible)}
+          >
+          <PiPlusBold size={190} className={`transition-transform duration-500 ${variantsVisible ? 'rotate-[225deg]' : undefined} `}/>
+        </button>
+      </div>
+      <div className={`relative bottom-3 grid transition-all duration-700 ${variantsVisible ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'}`}>
+        <div className="overflow-hidden">
+          <div className={`mb-6 px-2 py-4 w-5/6 mx-auto rounded-b-3xl transition-all duration-700 bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? 'translate-y-0' : ' -translate-y-full'} }`}>
+            {pokemon.variants.map((variant) =>
+              <VariantCard variant={variant} key={variant.var_id}/>
+            )}
+          </div>
+        </div>
       </div>
     </>
   )
@@ -108,8 +127,8 @@ const PokemonCard = ( {pokemon} ) => {
 
 const VariantCard = ( {variant} ) => (
   <div className={`h-1/3 mx-auto my-6 flex items-center rounded-full shadow-2xl bg-${GetTypeStyle(variant.type_1)}`} key={variant.var_id}>
-    <img className='h-56 m-4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
-    <div className=" h-56 w-2/3 rounded-3xl flex p-2 shadow-lg">
+    <img className='w-16 m-4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
+    <div className=" h-24 w-24 rounded-3xl flex p-2 shadow-lg">
       <VariantDetails variant={variant} />
       <VariantStats variant={variant} />
     </div>
@@ -119,14 +138,14 @@ const VariantCard = ( {variant} ) => (
 
 const VariantDetails = ( {variant} ) => (
   <div className=" w-2/3 h-full ml-2">
-    <h1 className="text-4xl">{variant.var_name}</h1>
-    <h2 className="text-4xl py-2">{variant.type_1} {variant.type_2}</h2>
+    <h1 className="text-xs">{variant.var_name}</h1>
+    <h2 className="text-xs py-2">{variant.type_1} {variant.type_2}</h2>
   </div>
 )
 
 
 const VariantStats = ( {variant} ) => (
-  <div className=" w-1/4 h-full text-xl">
+  <div className="text-xs">
     <h1>Total: {variant.total_stats}</h1>
     <h2>HP: {variant.hp}</h2>
     <h2>Attack: {variant.att}</h2>
@@ -139,35 +158,35 @@ const VariantStats = ( {variant} ) => (
 
 
 const CommonAttributes = ( {pokemon} ) => (
-  <div className="h-72 my-auto mx-4 w-96">
-    <h1 className='text-5xl font-semibold p-2'>{pokemon.pokedex_num}</h1>
-    <h1 className='text-5xl font-semibold p-2'>{pokemon.base_name}</h1>
+  <div className="">
+    <h1 className='text-sm font-semibold'>{pokemon.pokedex_num}</h1>
+    <h1 className='text-sm font-semibold'>{pokemon.base_name}</h1>
   </div>
 );
 
 
 const UniqueAttributes = ( {pokemon} ) => (
-  <div className="w-72 h-72 my-auto mx-4">
+  <div className="mt-auto">
     {pokemon.pseudo_legendary && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Pseudo-legendary</h1>
+      <h1 className='text-sm font-semibold'>Pseudo-legendary</h1>
     )}
     {pokemon.legendary && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Legendary</h1>
+      <h1 className='text-sm font-semibold'>Legendary</h1>
     )}
     {pokemon.mythical && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Mythical</h1>
+      <h1 className='text-sm font-semibold'>Mythical</h1>
     )}
     {pokemon.paradox && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Paradox</h1>
+      <h1 className='text-sm font-semibold'>Paradox</h1>
     )}
     {pokemon.ultrabeast && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Ultra Beast</h1>
+      <h1 className='text-sm font-semibold'>Ultra Beast</h1>
     )}
     {pokemon.variants.some((variant) => variant.mega) && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Mega</h1>
+      <h1 className='text-sm font-semibold'>Mega</h1>
     )}
     {pokemon.variants.some((variant) => variant.regional) && (
-      <h1 className='text-5xl font-semibold p-2 text-center'>Regional</h1>
+      <h1 className='text-sm font-semibold'>Regional</h1>
     )}  
   </div>
 );
