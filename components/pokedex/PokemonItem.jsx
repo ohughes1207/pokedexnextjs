@@ -128,7 +128,7 @@ const PokemonCard = ( {pokemon} ) => {
 const VariantCard = ( {variant} ) => (
   <div className={`p-1 mx-auto mt-4 flex items-center rounded-full shadow-lg bg-${GetTypeStyle(variant.type_1)} pr-8`}>
     <img className=' w-1/4 bg-black rounded-full shadow-lg' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
-    <div className="h-fit rounded-3xl flex p-1 shadow-lg flex-grow justify-between">
+    <div className="h-fit rounded-3xl flex p-1 shadow-lg flex-grow justify-between pr-2">
       <VariantDetails variant={variant} />
       <VariantStats variant={variant} />
     </div>
@@ -158,9 +158,9 @@ const VariantStats = ( {variant} ) => (
 
 
 const CommonAttributes = ( {pokemon} ) => (
-  <div className="">
-    <h1 className='text-sm sm:text-lg font-semibold'>{pokemon.pokedex_num}</h1>
-    <h1 className='text-sm sm:text-lg font-semibold'>{pokemon.base_name}</h1>
+  <div className="text-sm sm:text-lg font-semibold">
+    <h1 className=''>{pokemon.pokedex_num}</h1>
+    <h1 className=''>{pokemon.base_name}</h1>
   </div>
 );
 
