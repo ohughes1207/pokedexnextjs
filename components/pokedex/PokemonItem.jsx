@@ -44,7 +44,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
 
   return (
     <>
-      <div className="mx-auto w-11/12 p-2 my-8 rounded-3xl bg-red-500 sm:w-4/5">
+      <div className="mx-auto w-11/12 p-2 my-8 rounded-3xl bg-red-500 sm:w-4/5 lg:w-3/4">
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
@@ -98,17 +98,17 @@ const PokemonCard = ( {pokemon} ) => {
 
   return (
     <>
-      <div className={`mt-3 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 p-1 sm:p-2 h-32 sm:h-auto`}>
-        <img className="h-24 my-auto sm:h-32 md:h-40 bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
-        <div className="flex-grow ml-2 p-2 shadow-xl rounded-3xl">
+      <div className={`mt-3 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 p-1 sm:p-2 md:p-3 h-28 sm:h-auto`}>
+        <img className="h-24 my-auto sm:h-32 md:h-40 lg:h-48 bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+        <div className="flex-grow ml-2 p-2 shadow-xl rounded-3xl flex flex-col justify-between">
           <CommonAttributes pokemon={pokemon}/>
           <UniqueAttributes pokemon={pokemon}/>
         </div>
         <button
-          className={`w-20 h-20 sm:w-28 sm:h-28 my-auto mx-2 md:mr-1 rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100 ` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
+          className={`w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 my-auto mx-2 md:mr-1 rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100 ` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
           onClick={() => setVariantsVisible(!variantsVisible)}
         >
-          <PiPlusBold className={`text-[80px] sm:text-[110px] transition-transform duration-500 ${variantsVisible ? 'rotate-[225deg]' : undefined} `}/>
+          <PiPlusBold className={`text-[80px] sm:text-[110px] md:text-[140px] transition-transform duration-500 ${variantsVisible ? 'rotate-[225deg]' : undefined} `}/>
         </button>
       </div>
       <div className={`relative bottom-3 grid transition-all duration-700 ${variantsVisible ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'}`}>
