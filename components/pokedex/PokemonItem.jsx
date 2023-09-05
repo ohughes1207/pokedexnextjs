@@ -44,7 +44,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
 
   return (
     <>
-      <div className="mx-auto w-11/12 p-2 my-8 rounded-3xl bg-red-500 sm:w-4/5 lg:w-3/4">
+      <div className="mx-auto w-11/12 p-2 my-8 rounded-3xl bg-red-500 sm:w-4/5 lg:w-3/4  xl:w-11/12 xl:px-4">
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
@@ -98,22 +98,22 @@ const PokemonCard = ( {pokemon} ) => {
 
   return (
     <>
-      <div className={`mt-3 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 p-1 sm:p-2 md:p-3 h-28 sm:h-auto`}>
-        <img className="h-24 my-auto sm:h-32 md:h-40 lg:h-48 bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+      <div className={`mt-3 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 p-1 pl-2 sm:p-2 md:p-3 h-28 sm:h-auto`}>
+        <img className="h-24 my-auto sm:h-32 md:h-40 lg:h-48 xl:h-56 bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
         <div className="flex-grow ml-2 p-2 shadow-xl rounded-3xl flex flex-col justify-between">
           <CommonAttributes pokemon={pokemon}/>
           <UniqueAttributes pokemon={pokemon}/>
         </div>
         <button
-          className={`w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 my-auto mx-2 md:mr-1 rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100 ` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
+          className={`w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 xl:w-48 xl:h-48 my-auto mx-2 md:mr-1 rounded-full shadow-md flex justify-center items-center transition-all duration-500 ${variantsVisible ? `text-${GetTypeStyle(pokemon.variants[0].type_1)} bg-gray-100 ` : `bg-${GetTypeStyle(pokemon.variants[0].type_1)} text-gray-100 hover:bg-gray-100 hover:text-${GetTypeStyle(pokemon.variants[0].type_1)}`}`}
           onClick={() => setVariantsVisible(!variantsVisible)}
         >
-          <PiPlusBold className={`text-[80px] sm:text-[110px] md:text-[140px] transition-transform duration-500 ${variantsVisible ? 'rotate-[225deg]' : undefined} `}/>
+          <PiPlusBold className={`text-[80px] sm:text-[110px] md:text-[140px] xl:text-[190px] transition-transform duration-500 ${variantsVisible ? 'rotate-[225deg]' : undefined} `}/>
         </button>
       </div>
       <div className={`relative bottom-3 grid transition-all duration-700 ${variantsVisible ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'}`}>
         <div className="overflow-hidden">
-          <div className={`px-1 py-2 w-5/6 mx-auto rounded-b-3xl transition-all duration-700 bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? 'translate-y-0' : ' -translate-y-full'} }`}>
+          <div className={`px-1 py-2 w-5/6 md:w-3/4 mx-auto rounded-b-3xl transition-all duration-700 bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? 'translate-y-0' : ' -translate-y-full'} }`}>
             {pokemon.variants.map((variant) =>
               <VariantCard variant={variant} key={variant.var_id}/>
             )}
@@ -137,7 +137,7 @@ const VariantCard = ( {variant} ) => (
 
 
 const VariantDetails = ( {variant} ) => (
-  <div className="h-full ml-2 mr-1 text-xs sm:text-base md:text-lg">
+  <div className="h-full ml-2 mr-1 text-xs sm:text-base md:text-lg lg:text-xl">
     <h1 className="">{variant.var_name}</h1>
     <h2 className="py-2">{variant.type_1} {variant.type_2}</h2>
   </div>
@@ -145,7 +145,7 @@ const VariantDetails = ( {variant} ) => (
 
 
 const VariantStats = ( {variant} ) => (
-  <div className="text-xs">
+  <div className="text-xs w-20">
     <h1>Total: {variant.total_stats}</h1>
     <h2>HP: {variant.hp}</h2>
     <h2>Attack: {variant.att}</h2>
@@ -158,7 +158,7 @@ const VariantStats = ( {variant} ) => (
 
 
 const CommonAttributes = ( {pokemon} ) => (
-  <div className="text-sm sm:text-lg md:text-xl font-semibold w-fit">
+  <div className="text-sm sm:text-base md:text-xl lg:text-3xl font-semibold w-fit">
     <h1 className=''>{pokemon.pokedex_num}</h1>
     <h1 className=''>{pokemon.base_name}</h1>
   </div>
@@ -166,7 +166,7 @@ const CommonAttributes = ( {pokemon} ) => (
 
 
 const UniqueAttributes = ( {pokemon} ) => (
-  <div className="mt-auto text-sm font-semibold sm:text-lg md:text-xl">
+  <div className="mt-auto text-sm font-semibold sm:text-base md:text-xl lg:text-3xl ">
     {pokemon.pseudo_legendary && (
       <h1 className=''>Pseudo-legendary</h1>
     )}
