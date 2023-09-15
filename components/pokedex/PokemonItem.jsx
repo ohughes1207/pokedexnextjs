@@ -43,7 +43,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
 
   return (
     <>
-      <div className="mx-auto w-11/12 p-1 sm:p-2 my-8 rounded-3xl bg-red-500 sm:w-4/5 lg:w-3/4  xl:w-11/12 xl:px-6">
+      <div className="mx-auto w-11/12 p-1 sm:p-2 my-8 rounded-3xl bg-red-500 sm:w-4/5 lg:w-3/4 xl:w-11/12 2xl:w-3/4 xl:px-6 2xl:p-4">
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
@@ -97,9 +97,9 @@ const PokemonCard = ( {pokemon} ) => {
 
   return (
     <>
-      <div className={`mt-3 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 pl-2 sm:p-2 md:p-3 h-28 sm:h-auto `}>
-        <img className="h-24 my-auto sm:h-32 md:h-40 lg:h-48 xl:h-56 bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
-        <div className="flex-grow ml-2 p-2 shadow-xl rounded-3xl flex flex-col justify-between">
+      <div className={`mt-3 2xl:mt-6 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 pl-2 sm:p-2 md:p-3 2xl:p-4 h-28 sm:h-auto`}>
+        <img className="h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56 2xl:h-72 2xl:m-4 my-auto bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
+        <div className="flex-grow ml-2 p-2 shadow-xl rounded-3xl flex flex-col justify-between 2xl:ml-10">
           <CommonAttributes pokemon={pokemon}/>
           <UniqueAttributes pokemon={pokemon}/>
         </div>
