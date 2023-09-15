@@ -112,7 +112,7 @@ const PokemonCard = ( {pokemon} ) => {
       </div>
       <div className={`relative bottom-3 grid transition-all duration-700 ${variantsVisible ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,0fr)]'}`}>
         <div className="overflow-hidden">
-          <div className={`px-1 py-2 w-5/6 md:w-3/4 mx-auto rounded-b-3xl transition-all duration-700 bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? 'translate-y-0' : ' -translate-y-full'} }`}>
+          <div className={`px-1 lg:px-2 py-2 lg:py-5 w-5/6 md:w-3/4 mx-auto rounded-b-3xl transition-all duration-700 bg-${GetTypeStyle(pokemon.variants[0].type_1)} ${variantsVisible ? 'translate-y-0' : ' -translate-y-full'} }`}>
             {pokemon.variants.map((variant) =>
               <VariantCard variant={variant} key={variant.var_id}/>
             )}
@@ -126,7 +126,7 @@ const PokemonCard = ( {pokemon} ) => {
 
 const VariantCard = ( {variant} ) => (
   <div className={`p-1 md:pl-2 mx-auto mt-4 flex items-center rounded-full shadow-lg bg-${GetTypeStyle(variant.type_1)} pr-8 xl:pr-20 border`}>
-    <img className='w-1/4 lg:w-[30%] bg-black rounded-full shadow-lg mr-0.5 xl:mr-2' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
+    <img className='w-1/4 lg:w-[30%] xl:w-1/4 bg-black rounded-full shadow-lg mr-0.5 xl:mr-2' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
     <div className="h-fit rounded-3xl flex p-0.5 md:pl-2 shadow-lg flex-grow justify-between pr-2 border">
       <VariantDetails variant={variant} />
       <VariantStats variant={variant} />
