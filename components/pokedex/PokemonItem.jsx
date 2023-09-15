@@ -6,7 +6,6 @@ import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
 import FetchFilteredPokemon from "./helpers/FetchFilteredPokemon";
 import Image from "next/image";
 
-
 export default function PokemonList ( { pokemonData, total_pages } ) {
 
   const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum, setPage } = usePokedex();
@@ -126,7 +125,7 @@ const PokemonCard = ( {pokemon} ) => {
 
 
 const VariantCard = ( {variant} ) => (
-  <div className={`p-1 mx-auto mt-4 flex items-center rounded-full shadow-lg bg-${GetTypeStyle(variant.type_1)} pr-8 xl:pr-20`}>
+  <div className={`p-1 md:pl-2 mx-auto mt-4 flex items-center rounded-full shadow-lg bg-${GetTypeStyle(variant.type_1)} pr-8 xl:pr-20`}>
     <img className='w-1/4 bg-black rounded-full shadow-lg mr-0.5 xl:mr-2' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
     <div className="h-fit rounded-3xl flex p-0.5 shadow-lg flex-grow justify-between pr-2">
       <VariantDetails variant={variant} />
