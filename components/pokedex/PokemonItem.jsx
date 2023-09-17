@@ -136,7 +136,7 @@ const VariantCard = ( {variant} ) => (
 
 
 const VariantDetails = ( {variant} ) => (
-  <div className="mt-1.5 px-1 text-xs sm:text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-4xl">
+  <div className="mt-1.5 sm:mt-0.5 px-1 text-xs sm:text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-4xl">
     <h1 className="mb-2">{variant.var_name}</h1>
     <h2 className="">{variant.type_1} {variant.type_2}</h2>
   </div>
