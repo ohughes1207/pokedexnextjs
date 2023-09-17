@@ -99,7 +99,7 @@ const PokemonCard = ( {pokemon} ) => {
     <>
       <div className={`mt-3 2xl:mt-6 flex rounded-full bg-${GetTypeStyle(pokemon.variants[0].type_1)} shadow-xl relative z-10 p-2 sm:p-3 md:p-3.5 lg:p-5 xl:p-7 2xl:p-8 h-28 sm:h-auto`}>
         <img className="h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56 2xl:h-72 mr-2 sm:mr-3 md:mr-3.5 xl:mr-7 lg:mr-5 2xl:mr-14 my-auto bg-black rounded-full shadow-lg" src={`/pokemon_imgs/${pokemon.variants[0].img_name}`} alt={pokemon.variants[0].img_name}/>
-        <div className="flex-grow shadow-xl rounded-3xl flex flex-col justify-between p-2 sm:px-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 2xl:px-3">
+        <div className="flex-grow shadow-xl rounded-3xl flex flex-col justify-between p-2 sm:px-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 2xl:px-7">
           <CommonAttributes pokemon={pokemon}/>
           <UniqueAttributes pokemon={pokemon}/>
         </div>
@@ -157,7 +157,7 @@ const VariantStats = ( {variant} ) => (
 
 
 const CommonAttributes = ( {pokemon} ) => (
-  <div className="text-sm sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold w-fit 2xl:mx-4 ">
+  <div className="text-sm sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold w-fit">
     <h1 className='2xl:mb-3'>{pokemon.pokedex_num}</h1>
     <h1 className=''>{pokemon.base_name}</h1>
   </div>
