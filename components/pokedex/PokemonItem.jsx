@@ -47,7 +47,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
         {filteredPokemonData.map((pokemon) => (
           <PokemonCard pokemon={pokemon} key={pokemon.base_id}/>
           ))}
-        <div className="mx-auto my-12 flex justify-center text-gray-100">
+        <div className="mx-auto my-12 flex justify-center text-gray-100 px-1">
           <PageMenu maxPages={maxPages}/>
         </div>
       </div>
@@ -77,7 +77,7 @@ const PageMenu = ( {maxPages} ) => {
           <BiSolidLeftArrow size={90}/>
         </button>
       </div>
-      <div className="mx-20 my-auto text-center w-20 text-2xl">
+      <div className="mx-12 sm:mx-16 md:mx-20 lg:mx-24 my-auto text-center text-2xl">
         {pageNum} / {maxPages}
       </div>
       <div className="">
