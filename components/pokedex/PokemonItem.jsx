@@ -125,9 +125,9 @@ const PokemonCard = ( {pokemon} ) => {
 
 
 const VariantCard = ( {variant} ) => (
-  <div className={`p-1 md:h-1/3 mx-auto mt-4 flex items-center rounded-full shadow-lg bg-${GetTypeStyle(variant.type_1)} pr-8 sm:pr-11 lg:pr-14 xl:pr-24 border`}>
-    <img className='w-1/4 lg:w-[30%] xl:w-1/4 md:m-1 lg:m-2 xl:m-3 2xl:m-4 2xl:w-[21%] 2xl:w-1/5 2xl:w-56 bg-black rounded-full shadow-lg mr-0.5 xl:mr-2' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
-    <div className="h-fit rounded-3xl flex px-2 sm:py-1 xl:pl-2 shadow-lg flex-grow justify-between border md:m-1">
+  <div className={`p-1 md:py-1.5 md:pl-1.5 lg:py-2 lg:pl-2 xl:py-4 xl:pl-4 md:h-1/3 mx-auto mt-4 flex items-center rounded-full shadow-lg bg-${GetTypeStyle(variant.type_1)} pr-8 sm:pr-11 lg:pr-14 xl:pr-24`}>
+    <img className='w-1/4 lg:w-[30%] xl:w-1/4 2xl:w-1/4 bg-black rounded-full shadow-lg mr-0.5 md:mr-1.5 lg:mr-2 xl:mr-4' src={`/pokemon_imgs/${variant.img_name}`} alt={variant.img_name}/>
+    <div className="h-fit rounded-3xl flex px-2 sm:py-1 xl:pl-2 shadow-lg flex-grow justify-between">
       <VariantDetails variant={variant} />
       <VariantStats variant={variant} />
     </div>
