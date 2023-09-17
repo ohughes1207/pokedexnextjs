@@ -165,27 +165,27 @@ const CommonAttributes = ( {pokemon} ) => (
 
 
 const UniqueAttributes = ( {pokemon} ) => (
-  <div className="mt-auto xl:mt-0 text-sm font-semibold sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+  <div className="text-sm font-semibold sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
     {pokemon.pseudo_legendary && (
-      <h1 className=''>Pseudo-legendary</h1>
+      <h1 className='2xl:mb-3'>Pseudo-legendary</h1>
     )}
     {pokemon.legendary && (
-      <h1 className=''>Legendary</h1>
+      <h1 className='2xl:mb-3'>Legendary</h1>
     )}
     {pokemon.mythical && (
-      <h1 className=''>Mythical</h1>
+      <h1 className='2xl:mb-3'>Mythical</h1>
     )}
     {pokemon.paradox && (
-      <h1 className=''>Paradox</h1>
+      <h1 className='2xl:mb-3'>Paradox</h1>
     )}
     {pokemon.ultrabeast && (
-      <h1 className=''>Ultra Beast</h1>
+      <h1 className='2xl:mb-3'>Ultra Beast</h1>
     )}
     {pokemon.variants.some((variant) => variant.mega) && (
-      <h1 className=''>Mega</h1>
+      <h1 className='2xl:mb-3'>Mega</h1>
     )}
     {pokemon.variants.some((variant) => variant.regional) && (
-      <h1 className=''>Regional</h1>
+      <h1 className='2xl:mb-3'>Regional</h1>
     )}  
   </div>
 );
