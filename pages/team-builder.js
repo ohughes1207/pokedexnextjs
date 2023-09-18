@@ -15,10 +15,8 @@ export default function TeamBuilder() {
                 <title>Team Builder</title>
                 <meta name='description' content='Pokemon List' />
             </Head>
-            <UIProvider>
-                <Navbar />
-                <Sidebar />
-            </UIProvider>
+            <Navbar />
+            <Sidebar />
             <TeamTable />
         </>
     )
