@@ -1,9 +1,8 @@
-import { atom } from "jotai";
+import { atomWithReset } from "jotai/utils";
 
-
-export const TM1Atom = atom('')
-export const TM2Atom = atom('')
-export const TM3Atom = atom('')
-export const TM4Atom = atom('')
-export const TM5Atom = atom('')
-export const TM6Atom = atom('')
+export const TM1Atom = atomWithReset('')
+export const TM2Atom = atomWithReset('')
+export const TM3Atom = atomWithReset('')
+export const TM4Atom = atomWithReset('')
+export const TM5Atom = atomWithReset('')
+export const TM6Atom = atomWithReset('')

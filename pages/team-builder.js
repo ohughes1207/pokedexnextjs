@@ -5,6 +5,7 @@ import UIProvider from '@/components/UI/UIContext'
 import Sidebar from '@/components/UI/Sidebar'
 import Navbar from '@/components/UI/Navbar'
 import TeamTable from '@/components/team_builder/TeamTable'
+import ResetTableButton from '@/components/team_builder/ResetTableButton'
 
 
 
@@ -18,6 +19,7 @@ export default function TeamBuilder() {
             <Navbar />
             <Sidebar />
             <TeamTable />
+            <ResetTableButton />
         </>
     )
 }
