@@ -19,7 +19,6 @@ export default function TeamBuilder() {
             <Navbar />
             <Sidebar />
             <TeamTable />
-            <ResetTableButton />
         </>
     )
 }
