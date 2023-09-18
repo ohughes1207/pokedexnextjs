@@ -1,13 +1,12 @@
 import React from "react";
-import { usePokedex } from "./PokedexContext";
 import { AiOutlineCheck } from "react-icons/ai"
 import { useAtom, useSetAtom } from "jotai";
-import { T1FilterAtom, T2FilterAtom, isLegendaryAtom, isMythicalAtom, isPseudoLAtom, isParadoxAtom, isRegionalAtom, isMegaAtom, isUBAtom } from "./PokedexAtoms";
+import { T1FilterAtom, T2FilterAtom, isLegendaryAtom, isMythicalAtom, isPseudoLAtom, isParadoxAtom, isRegionalAtom, isMegaAtom, isUBAtom, searchQueryAtom, genValueAtom } from "./PokedexAtoms";
 
 export default function SearchMenu () {
   
-  const [setT1Filter] = useSetAtom(T1FilterAtom);
-  const [setT2Filter] = useSetAtom(T2FilterAtom);
+  const setT1Filter = useSetAtom(T1FilterAtom);
+  const setT2Filter = useSetAtom(T2FilterAtom);
 
   const [isLegendary, setIsLegendary] = useAtom(isLegendaryAtom);
   const [isMythical, setIsMythical] = useAtom(isMythicalAtom);
@@ -69,7 +68,7 @@ const Filter = ( {text, filter, setFilter } ) => {
 }
 
 const SearchBar = () => {
-  const { setSearchQuery } = usePokedex();
+  const setSearchQuery = useSetAtom(searchQueryAtom);
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
   };  
@@ -80,7 +79,7 @@ const SearchBar = () => {
 
 
 const GenFilter = () => {
-  const { setGenValue } =usePokedex()
+  const setGenValue = useSetAtom(genValueAtom)
   const handleInputChange = (e) => {
     console.log(e.target.value)
     setGenValue(e.target.value);

@@ -1,4 +1,4 @@
-import { useAtom } from "jotai";
+import { atom } from "jotai";
 
 
 export const searchQueryAtom = atom('');

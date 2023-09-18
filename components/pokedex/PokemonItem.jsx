@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { usePokedex } from "./PokedexContext";
 import GetTypeStyle from "./helpers/GetTypeStyle";
 import { PiPlusBold } from "react-icons/pi"
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
 import FetchFilteredPokemon from "./helpers/FetchFilteredPokemon";
-import Image from "next/image";
+import { useAtomValue, useAtom } from "jotai";
+import { T1FilterAtom, T2FilterAtom, genValueAtom, isLegendaryAtom, isMegaAtom, isMythicalAtom, isParadoxAtom, isPseudoLAtom, isRegionalAtom, isUBAtom, pageNumAtom, searchQueryAtom } from "./PokedexAtoms";
 
 export default function PokemonList ( { pokemonData, total_pages } ) {
 
-  const { searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum, setPage } = usePokedex();
+  const searchQuery = useAtomValue(searchQueryAtom)
+  const T1Filter = useAtomValue(T1FilterAtom)
+  const T2Filter = useAtomValue(T2FilterAtom)
+  const genValue = useAtomValue(genValueAtom)
+  const isLegendary = useAtomValue(isLegendaryAtom)
+  const isParadox = useAtomValue(isParadoxAtom)
+  const isPseudoL = useAtomValue(isPseudoLAtom)
+  const isUB = useAtomValue(isUBAtom)
+  const isMythical = useAtomValue(isMythicalAtom)
+  const isRegional = useAtomValue(isRegionalAtom)
+  const isMega = useAtomValue(isMegaAtom)
+
+  const [pageNum, setPage] = useAtom(pageNumAtom)
 
   
   const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
@@ -57,7 +69,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
 
 const PageMenu = ( {maxPages} ) => {
 
-  const {pageNum, setPage} = usePokedex();
+  const [pageNum, setPage] = useAtom(pageNumAtom);
 
   const IncrementPage = () => {
     if (pageNum < maxPages) {
