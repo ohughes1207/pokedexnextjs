@@ -1,3 +1,4 @@
+/*
 import React, {createContext, useContext, useState } from "react";
 
 const PokedexContext = createContext()
@@ -53,3 +54,5 @@ export default function PokedexProvider( {children} ) {
         </PokedexContext.Provider>
       );
     }
+
+*/

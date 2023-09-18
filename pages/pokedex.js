@@ -17,15 +17,11 @@ export default function Pokemon({ pokemonData, maxPages }) {
                 <title>Pokedex</title>
                 <meta name='description' content='Pokemon List' />
             </Head>
-            <UIProvider>
-                <Navbar />
-                <Sidebar />
-            </UIProvider>
-            <PokedexProvider>
-                <SearchMenu />
-                <PokemonList pokemonData={pokemonData} maxPages={maxPages} />
-                <ScrollToTopButton />
-            </PokedexProvider>
+            <Navbar />
+            <Sidebar />
+            <SearchMenu />
+            <PokemonList pokemonData={pokemonData} maxPages={maxPages} />
+            <ScrollToTopButton />
         </>
     )
 }

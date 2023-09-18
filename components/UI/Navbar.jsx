@@ -3,6 +3,8 @@ import { FaBars } from 'react-icons/fa';
 import { useUI } from './UIContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAtom } from 'jotai';
+import { SidebarVisibleAtom } from './UIAtoms';
 
 export default function Navbar() {
 
@@ -16,7 +18,7 @@ export default function Navbar() {
 
 const NavigationIcon = () => {
   
-  const { SidebarVisible, setSidebarVisible } = useUI()
+  const [SidebarVisible, setSidebarVisible] = useAtom(SidebarVisibleAtom)
   
   const toggleSidebar = () => {
     setSidebarVisible(!SidebarVisible);

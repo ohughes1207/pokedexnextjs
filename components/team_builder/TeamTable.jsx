@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
+
+
 import FetchVariant from './helpers/FetchVariant';
 import GetVariantResist from './helpers/GetVariantResist';
 import GetTotalResist from './helpers/GetTotalResist';
@@ -9,6 +11,11 @@ import GetResistStyle from './helpers/GetResistStyle';
 import GetWeaknessStyle from './helpers/GetWeaknessStyle';
 import GetImmuneStyle from './helpers/GetImmuneStyle';
 import GetTMStyle from './helpers/GetTMStyle';
+import { useAtom } from 'jotai';
+
+import { TM1Atom, TM2Atom, TM3Atom, TM4Atom, TM5Atom, TM6Atom } from './TeamTableAtoms';
+
+
 
 
 export default function TeamTable() {
@@ -21,12 +28,12 @@ export default function TeamTable() {
 
 
 const TableColumns = () => {
-    const [TM1, setTM1] = useState('');
-    const [TM2, setTM2] = useState('');
-    const [TM3, setTM3] = useState('');
-    const [TM4, setTM4] = useState('');
-    const [TM5, setTM5] = useState('');
-    const [TM6, setTM6] = useState('');
+    const [TM1, setTM1] = useAtom(TM1Atom);
+    const [TM2, setTM2] = useAtom(TM2Atom);
+    const [TM3, setTM3] = useAtom(TM3Atom);
+    const [TM4, setTM4] = useAtom(TM4Atom);
+    const [TM5, setTM5] = useAtom(TM5Atom);
+    const [TM6, setTM6] = useAtom(TM6Atom);
 
     
     return (

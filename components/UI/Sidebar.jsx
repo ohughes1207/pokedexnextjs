@@ -3,9 +3,11 @@ import { TbPokeball } from "react-icons/tb";
 import { TbSearch } from 'react-icons/tb';
 import { useUI } from './UIContext';
 import Link from 'next/link';
+import { useAtom } from 'jotai';
+import { SidebarVisibleAtom } from './UIAtoms';
 
 export default function Sidebar() {
-  const { SidebarVisible } = useUI()
+  const [SidebarVisible] = useAtom(SidebarVisibleAtom)
   return (
     <div className={`fixed left-0 w-32 flex flex-col bg-red-500 shadow-lg rounded-r-3xl top-1/3 py-3 duration-300 transition-all z-50 ${SidebarVisible ? 'ml-0' : '-ml-32'}`}>
       <Link href='/pokedex'>
