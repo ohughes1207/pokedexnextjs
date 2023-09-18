@@ -13,7 +13,7 @@ import GetTMStyle from './helpers/GetTMStyle';
 
 export default function TeamTable() {
   return (
-    <table className='mx-auto w-5/6 mt-48 bg-slate-200 border-2 border-zinc-600'>
+    <table className='mx-auto 2xl:w-5/6 mt-48 bg-slate-200 border-2 border-zinc-600'>
         <TableColumns />
     </table>
   )
