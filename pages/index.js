@@ -6,7 +6,6 @@ const inter = Inter({ subsets: ['latin'] })
 import React from 'react'
 import Background from '@/components/index/background'
 import Footer from '@/components/index/Footer'
-import UIProvider from '@/components/UI/UIContext'
 import Sidebar from '@/components/UI/Sidebar'
 import Navbar from '@/components/UI/Navbar'
 
@@ -18,10 +17,8 @@ export default function Home() {
         <meta name='description' content='Pokedex App Homepage' />
       </Head>
       <Background />
-      <UIProvider>
-        <Navbar />
-        <Sidebar />
-      </UIProvider>
+      <Navbar />
+      <Sidebar />
       <Footer />
     </>  
   )

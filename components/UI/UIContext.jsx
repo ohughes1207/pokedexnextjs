@@ -1,3 +1,4 @@
+/*
 import React, {createContext, useContext, useState } from "react";
 
 const UIContext = createContext()
@@ -15,3 +16,4 @@ export default function UIProvider( {children} ) {
         </UIContext.Provider>
     );
 }
+*/
