@@ -1,9 +1,22 @@
 import React from "react";
 import { usePokedex } from "./PokedexContext";
 import { AiOutlineCheck } from "react-icons/ai"
+import { useAtom, useSetAtom } from "jotai";
+import { T1FilterAtom, T2FilterAtom, isLegendaryAtom, isMythicalAtom, isPseudoLAtom, isParadoxAtom, isRegionalAtom, isMegaAtom, isUBAtom } from "./PokedexAtoms";
 
 export default function SearchMenu () {
-  const {setT1Filter, setT2Filter, setIsLegendary, isLegendary, isMythical, setIsMythical, isPseudoL, setIsPseudoL, isParadox, setIsParadox, isRegional, setIsRegional, isMega, setIsMega, isUB, setIsUB} = usePokedex()
+  
+  const [setT1Filter] = useSetAtom(T1FilterAtom);
+  const [setT2Filter] = useSetAtom(T2FilterAtom);
+
+  const [isLegendary, setIsLegendary] = useAtom(isLegendaryAtom);
+  const [isMythical, setIsMythical] = useAtom(isMythicalAtom);
+  const [isPseudoL, setIsPseudoL] = useAtom(isPseudoLAtom);
+  const [isParadox, setIsParadox] = useAtom(isParadoxAtom);
+  const [isRegional, setIsRegional] = useAtom(isRegionalAtom);
+  const [isMega, setIsMega] = useAtom(isMegaAtom);
+  const [isUB, setIsUB] = useAtom(isUBAtom);
+  
 
   return (
     <div className="bg-red-500 mt-32 w-11/12 p-1 mx-auto sm:w-4/5 lg:w-3/4 xl:w-11/12 rounded-3xl 2xl:w-3/4 xl:h-96">
