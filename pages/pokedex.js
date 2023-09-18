@@ -7,6 +7,7 @@ import UIProvider from '@/components/UI/UIContext'
 import Sidebar from '@/components/UI/Sidebar'
 import Navbar from '@/components/UI/Navbar'
 import ScrollToTopButton from '@/components/pokedex/ScrollTopButton'
+import ResetFiltersButton from '@/components/pokedex/ResetFiltersButton'
 
 
 
@@ -21,6 +22,7 @@ export default function Pokemon({ pokemonData, maxPages }) {
             <Sidebar />
             <SearchMenu />
             <PokemonList pokemonData={pokemonData} maxPages={maxPages} />
+            <ResetFiltersButton />
             <ScrollToTopButton />
         </>
     )

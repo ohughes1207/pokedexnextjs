@@ -35,11 +35,11 @@
 
 @layer components {
 
-  .scroll-top-button {
+  .reset-button {
     @apply opacity-0
   }
   
-  .scroll-top-button.visible {
+  .reset-button.visible {
     @apply opacity-100
   }
 }

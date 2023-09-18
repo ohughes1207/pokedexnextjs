@@ -5,8 +5,8 @@ import { T1FilterAtom, T2FilterAtom, isLegendaryAtom, isMythicalAtom, isPseudoLA
 
 export default function SearchMenu () {
   
-  const setT1Filter = useSetAtom(T1FilterAtom);
-  const setT2Filter = useSetAtom(T2FilterAtom);
+  const [T1Filter, setT1Filter] = useAtom(T1FilterAtom);
+  const [T2Filter, setT2Filter] = useAtom(T2FilterAtom);
 
   const [isLegendary, setIsLegendary] = useAtom(isLegendaryAtom);
   const [isMythical, setIsMythical] = useAtom(isMythicalAtom);
@@ -25,8 +25,8 @@ export default function SearchMenu () {
             <SearchBar />
           </div>
           <div className="flex justify-around px-5 my-2 sm:my-4 xl:my-8 2xl:px-0 2xl:my-10">
-            <TypeFilter TFilter={setT1Filter}/>
-            <TypeFilter TFilter={setT2Filter}/>
+            <TypeFilter TValue={T1Filter} TFilter={setT1Filter}/>
+            <TypeFilter TValue={T2Filter} TFilter={setT2Filter}/>
           </div>
           <div className="flex justify-center mt-2 2xl:mb-2">
             <GenFilter />
@@ -68,24 +68,24 @@ const Filter = ( {text, filter, setFilter } ) => {
 }
 
 const SearchBar = () => {
-  const setSearchQuery = useSetAtom(searchQueryAtom);
+  const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom);
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
   };  
   return (
-    <input className='text-center rounded-3xl text-xl sm:text-3xl md:text-4xl 2xl:text-5xl w-3/4 2xl:w-full' onChange={handleInputChange} type="text" placeholder="Search Pokemon"/>
+    <input className='text-center rounded-3xl text-xl sm:text-3xl md:text-4xl 2xl:text-5xl w-3/4 2xl:w-full' onChange={handleInputChange} value={searchQuery} type="text" placeholder="Search Pokemon"/>
   );
 }
 
 
 const GenFilter = () => {
-  const setGenValue = useSetAtom(genValueAtom)
+  const [genValue, setGenValue] = useAtom(genValueAtom)
   const handleInputChange = (e) => {
     console.log(e.target.value)
     setGenValue(e.target.value);
   };
   return (
-    <select className="rounded-3xl text-center px-5 text-lg sm:text-2xl md:text-3xl 2xl:text-4xl" onChange={handleInputChange}>
+    <select className="rounded-3xl text-center px-5 text-lg sm:text-2xl md:text-3xl 2xl:text-4xl" onChange={handleInputChange} value={genValue}>
       <option value="0"></option>
       <option value="1">Generation 1</option>
       <option value="2">Generation 2</option>
@@ -100,13 +100,13 @@ const GenFilter = () => {
   );
 }
 
-const TypeFilter = ( {TFilter }) => {
+const TypeFilter = ( { TValue, TFilter }) => {
   
   const handleInputChange = (e) => {
     TFilter(e.target.value);
   };
   return (
-    <select className="rounded-3xl text-center text-lg sm:text-2xl md:text-3xl 2xl:text-4xl" onChange={handleInputChange}>
+    <select className="rounded-3xl text-center text-lg sm:text-2xl md:text-3xl 2xl:text-4xl" onChange={handleInputChange} value={TValue}>
       <option value=""></option>
       <option value="normal">Normal</option>
       <option value="fire">Fire</option>
