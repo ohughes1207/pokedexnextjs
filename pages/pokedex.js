@@ -24,8 +24,8 @@ export default function Pokemon({ pokemonData, maxPages }) {
             <PokedexProvider>
                 <SearchMenu />
                 <PokemonList pokemonData={pokemonData} maxPages={maxPages} />
+                <ScrollToTopButton />
             </PokedexProvider>
-            <ScrollToTopButton />
         </>
     )
 }

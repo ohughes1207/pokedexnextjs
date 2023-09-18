@@ -6,36 +6,35 @@ export default function SearchMenu () {
   const {setT1Filter, setT2Filter, setIsLegendary, isLegendary, isMythical, setIsMythical, isPseudoL, setIsPseudoL, isParadox, setIsParadox, isRegional, setIsRegional, isMega, setIsMega, isUB, setIsUB} = usePokedex()
 
   return (
-  <div className='h-96 mx-auto w-3/4 mt-32 flex p-1 bg-red-500 rounded-3xl'>
-    <div className=" m-3 mx-auto">
-      <div className="mt-4 w-3/4 m-auto shadow-lg rounded-3xl pt-4">
-        <div className="flex mx-auto">
-          <SearchBar />
+    <div className="bg-red-500 mt-32 w-11/12 p-1 mx-auto sm:w-4/5 lg:w-3/4 xl:w-11/12 rounded-3xl 2xl:w-3/4 xl:h-96">
+      <div className="flex flex-col xl:flex-row ">
+        <div className="rounded-3xl mx-auto shadow-lg w-11/12 lg:w-5/6 xl:w-fit p-4 sm:p-6 xl:py-8 h-min my-auto 2xl:w-1/3 2xl:py-4 2xl:px-3">
+          <div className="flex justify-center mt-4">
+            <SearchBar />
+          </div>
+          <div className="flex justify-around px-5 my-2 sm:my-4 xl:my-8 2xl:px-0 2xl:my-10">
+            <TypeFilter TFilter={setT1Filter}/>
+            <TypeFilter TFilter={setT2Filter}/>
+          </div>
+          <div className="flex justify-center mt-2 2xl:mb-2">
+            <GenFilter />
+          </div>
         </div>
-        <div className="flex mx-auto my-4">
-          <TypeFilter TFilter={setT1Filter}/>
-          <TypeFilter TFilter={setT2Filter}/>
-        </div>
-        <div className="flex mx-auto my-4">
-          <GenFilter />
+        <div className="m-4 2xl:m-2 mx-auto text-gray-100 flex-col">
+          <div className="flex justify-evenly mb-2 lg:mb-4">
+            <Filter text={'Legendary'} filter={isLegendary} setFilter={setIsLegendary}/>
+            <Filter text={'Mythical'} filter={isMythical} setFilter={setIsMythical}/>
+            <Filter text={'Ultra Beast'} filter={isUB} setFilter={setIsUB}/>
+            <Filter text={'Paradox'} filter={isParadox} setFilter={setIsParadox}/>
+          </div>
+          <div className="flex justify-evenly">
+            <Filter text={'Regional'} filter={isRegional} setFilter={setIsRegional}/>
+            <Filter text={'Mega'} filter={isMega} setFilter={setIsMega}/>
+            <Filter text={'Pseudo-legendary'} filter={isPseudoL} setFilter={setIsPseudoL}/>
+          </div>
         </div>
       </div>
     </div>
-    <div className="w-1/2 m-3 mx-auto text-gray-100">
-      <div className=" h-1/2 flex py-1">
-        <Filter text={'Legendary'} filter={isLegendary} setFilter={setIsLegendary}/>
-        <Filter text={'Mythical'} filter={isMythical} setFilter={setIsMythical}/>
-        <Filter text={'Ultra Beast'} filter={isUB} setFilter={setIsUB}/>
-        <Filter text={'Paradox'} filter={isParadox} setFilter={setIsParadox}/>
-
-      </div>
-      <div className="h-1/2 flex py-1">
-        <Filter text={'Regional'} filter={isRegional} setFilter={setIsRegional}/>
-        <Filter text={'Mega'} filter={isMega} setFilter={setIsMega}/>
-        <Filter text={'Pseudo-legendary'} filter={isPseudoL} setFilter={setIsPseudoL}/>
-      </div>
-    </div>
-  </div>
   )
 }
 
@@ -47,9 +46,9 @@ const Filter = ( {text, filter, setFilter } ) => {
   }; 
 
   return (
-    <div className=" mx-auto px-2">
-      <span className="text-3xl mx-auto flex justify-center px-1">{text}</span>
-      <button className={`flex items-center justify-center h-24 w-24 m-2 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
+    <div className="flex flex-col mx-2 2xl:mx-5 2xl:my-1">
+      <span className="text-base mx-auto text-center truncate sm:text-2xl my-1 md:p-1 md:text-3xl">{text}</span>
+      <button className={`flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 mx-auto text-gray-100 hover:text-red-500 hover:bg-gray-100 rounded hover:rounded-3xl transition-all duration-300 ease-linear cursor-pointer shadow-lg ${filter ? 'text-red-500 rounded-3xl bg-gray-100' : 'bg-red-500'}`} onClick={toggleFilter}>
         <AiOutlineCheck size="85"/>
       </button>
     </div>
@@ -62,7 +61,7 @@ const SearchBar = () => {
     setSearchQuery(e.target.value);
   };  
   return (
-    <input className='w-full text-5xl m-4 text-center rounded-3xl' onChange={handleInputChange} type="text" placeholder="Search Pokemon"/>
+    <input className='text-center rounded-3xl text-xl sm:text-3xl md:text-4xl 2xl:text-5xl w-3/4 2xl:w-full' onChange={handleInputChange} type="text" placeholder="Search Pokemon"/>
   );
 }
 
@@ -74,7 +73,7 @@ const GenFilter = () => {
     setGenValue(e.target.value);
   };
   return (
-    <select className="text-4xl m-4 mx-auto rounded-3xl text-center px-5" onChange={handleInputChange}>
+    <select className="rounded-3xl text-center px-5 text-lg sm:text-2xl md:text-3xl 2xl:text-4xl" onChange={handleInputChange}>
       <option value="0"></option>
       <option value="1">Generation 1</option>
       <option value="2">Generation 2</option>
@@ -95,7 +94,7 @@ const TypeFilter = ( {TFilter }) => {
     TFilter(e.target.value);
   };
   return (
-    <select className="text-4xl m-4 mx-auto rounded-3xl text-center px-4" onChange={handleInputChange}>
+    <select className="rounded-3xl text-center text-lg sm:text-2xl md:text-3xl 2xl:text-4xl" onChange={handleInputChange}>
       <option value=""></option>
       <option value="normal">Normal</option>
       <option value="fire">Fire</option>
