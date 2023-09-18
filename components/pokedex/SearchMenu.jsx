@@ -20,8 +20,8 @@ export default function SearchMenu () {
             <GenFilter />
           </div>
         </div>
-        <div className="m-4 mx-auto text-gray-100 flex-col">
-          <div className="flex justify-evenly mb-2">
+        <div className="m-4 2xl:m-2 mx-auto text-gray-100 flex-col">
+          <div className="flex justify-evenly mb-2 lg:mb-4">
             <Filter text={'Legendary'} filter={isLegendary} setFilter={setIsLegendary}/>
             <Filter text={'Mythical'} filter={isMythical} setFilter={setIsMythical}/>
             <Filter text={'Ultra Beast'} filter={isUB} setFilter={setIsUB}/>
