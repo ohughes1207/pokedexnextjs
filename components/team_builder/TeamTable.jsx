@@ -82,7 +82,12 @@ const TeamMember = ({setFunc, TM}) => {
       };
     return (
         <th className={`border-b-2 border-zinc-600 mx-auto justify-center relative w-fit ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'} `}>
-            <input className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'}`} onChange={(e) => handleInputChange(e, setFunc)} value={TM.var_name} type="text" placeholder="Search Pokemon">
+            <input 
+            className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'}`}
+            onChange={(e) => handleInputChange(e, setFunc)}
+            value={TM.var_name}
+            type="text"
+            placeholder="Search Pokemon">
             </input>
 
             <SearchResultsList searchData={searchData} setFunc={setFunc}/>
