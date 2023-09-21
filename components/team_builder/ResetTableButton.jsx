@@ -15,13 +15,14 @@ export default function ResetTableButton () {
 
 
     const handleReset = () => {
-        console.log(TM1Atom)
         resetTM1();
         resetTM2();
         resetTM3();
         resetTM4();
         resetTM5();
         resetTM6();
+
+        document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
     }
 
     return (
