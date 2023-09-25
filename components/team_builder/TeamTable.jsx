@@ -100,7 +100,7 @@ const SearchResultsList = ({searchData, setFunc}) => (
 
     <div className={` w-full absolute top-full transition-all duration-500 grid ${searchData ? 'grid-rows-[minmax(0,1fr)]' : ' grid-rows-[minmax(0,1fr)]'} `}>
         <div className=' overflow-hidden '>
-            <div className={` bg-gray-100 max-h-[50vh] flex-col flex overflow-y-scroll transition-all duration-500 ${searchData ? ' translate-y-0' : ' -translate-y-full'}`}>
+            <div className={` bg-gray-100 max-h-[40vh] flex-col flex overflow-y-scroll transition-all duration-500 ${searchData ? ' translate-y-0' : ' -translate-y-full'}`}>
                 {searchData?.map((variant) =>
                 <button key={variant.var_id} className='transition-all duration-300 text-sm py-0.5 hover:bg-red-500 hover:text-gray-100' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
                 )}
