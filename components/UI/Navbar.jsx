@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa';
-import { useUI } from './UIContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAtom } from 'jotai';
@@ -41,6 +40,8 @@ const HomepageLogo = () => (
   </div>
 )
 
+
+
 const WebTitle = () => (
   <div className=''>
     <span className=' text-5xl text-white inline-block'>
@@ -48,15 +49,3 @@ const WebTitle = () => (
     </span>
   </div>
 )
-
-/*
-ALT LOGO
-
-const HomepageLogo = () => (
-  <div className="container h-[110px] w-[110px] relative">
-    <a href='/' className='h-[110px]'>
-      <img src="shaymin.png" alt="logo" className='relative top-1 hover:brightness-90 rotate-[145deg]'/> 
-    </a>
-  </div>
-)
-*/
