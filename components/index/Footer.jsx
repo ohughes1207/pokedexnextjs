@@ -33,7 +33,6 @@ const DetailsContent = () => (
     <span className='text-lg'>Made with &hearts; by Olli</span>
     <PlatformDetails icon={<BsGithub size="21"/>} text='ohughes1207' href='https://github.com/ohughes1207'/>
     <PlatformDetails icon={<BsDiscord size="21"/>} text='princess_olli'  href=''/>
-    <PlatformDetails icon={<AiFillInstagram size="21"/>} text='olli_hughes' href='https://www.instagram.com/olli_hughes/'/>
   </div>
 )
 
