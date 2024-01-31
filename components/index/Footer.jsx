@@ -32,7 +32,6 @@ const DetailsContent = () => (
   <div className='mt-1 ml-8'>
     <span className='text-lg'>Made with &hearts; by Olli</span>
     <PlatformDetails icon={<BsGithub size="21"/>} text='ohughes1207' href='https://github.com/ohughes1207'/>
-    <PlatformDetails icon={<BsDiscord size="21"/>} text='princess_olli'  href=''/>
   </div>
 )
 
