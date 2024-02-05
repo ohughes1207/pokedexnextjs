@@ -36,3 +36,4 @@ next-env.d.ts
 
 todos.txt
 commands.txt
+.dockerignore
