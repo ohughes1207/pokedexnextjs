@@ -1,7 +1,7 @@
 export default async function FetchFilteredPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum) {
 
   const queryParams = new URLSearchParams({
-    pokemon_name: searchQuery,
+    searchQuery: searchQuery,
     T1: T1Filter,
     T2: T2Filter,
     genValue: genValue,
@@ -15,7 +15,7 @@ export default async function FetchFilteredPokemon(searchQuery, T1Filter, T2Filt
     page: pageNum
   });
 
-  const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/get-filtered?${queryParams}`)
+  const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/api/PokemonBase/filtered?${queryParams}`)
 
   console.log(url);
 

@@ -33,7 +33,7 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
     FetchFilteredPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum)
       .then(filteredData => {
         setFilteredPokemonData(filteredData.data);
-        setMaxPages(filteredData.total_pages);
+        setMaxPages(filteredData.totalPages);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -150,7 +150,7 @@ const VariantCard = ( {variant} ) => (
 const VariantDetails = ( {variant} ) => (
   <div className="mt-1.5 sm:mt-0.5 px-1 text-xs sm:text-base md:text-lg lg:text-xl xl:text-3xl 2xl:text-4xl">
     <h1 className="mb-2">{variant.variantName}</h1>
-    <h2 className="">{variant.pokemonType1} {variant.pokemonType1}</h2>
+    <h2 className="">{variant.pokemonType1} {variant.pokemonType2}</h2>
   </div>
 )
 
