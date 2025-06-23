@@ -5,17 +5,17 @@ export default async function FetchFilteredPokemon(searchQuery, T1Filter, T2Filt
     T1: T1Filter,
     T2: T2Filter,
     genValue: genValue,
-    Leg: isLegendary,
-    Para: isParadox,
+    Legendary: isLegendary,
+    Paradox: isParadox,
     Pseudo: isPseudoL,
-    UB: isUB,
+    Ultrabeast: isUB,
     Myth: isMythical,
     Regional: isRegional,
     Mega: isMega,
     page: pageNum
   });
 
-  const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/pokemon/filter?${queryParams}`)
+  const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/get-filtered?${queryParams}`)
 
   console.log(url);
 
