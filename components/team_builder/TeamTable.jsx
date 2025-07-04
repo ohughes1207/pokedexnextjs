@@ -81,11 +81,11 @@ const TeamMember = ({setFunc, TM}) => {
         func(e.target.value);
       };
     return (
-        <th className={`border-b-2 border-zinc-600 mx-auto justify-center relative w-fit ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'} `}>
+        <th className={`border-b-2 border-zinc-600 mx-auto justify-center relative w-fit ${TM.pokemonType1 ? `bg-${GetTypeStyle(TM.pokemonType1)}` : 'bg-slate-200'} `}>
             <input 
-            className={`text-center w-full ${TM.type_1 ? `bg-${GetTypeStyle(TM.type_1)}` : 'bg-slate-200'}`}
+            className={`text-center w-full ${TM.pokemonType1 ? `bg-${GetTypeStyle(TM.pokemonType1)}` : 'bg-slate-200'}`}
             onChange={(e) => handleInputChange(e, setFunc)}
-            value={TM.var_name}
+            value={TM.variantName}
             type="text"
             placeholder="Search Pokemon">
             </input>
@@ -102,7 +102,7 @@ const SearchResultsList = ({searchData, setFunc}) => (
         <div className=' overflow-hidden '>
             <div className={` bg-gray-100 max-h-[40vh] flex-col flex overflow-y-scroll transition-all duration-500 ${searchData ? ' translate-y-0' : ' -translate-y-full'}`}>
                 {searchData?.map((variant) =>
-                <button key={variant.var_id} className='transition-all duration-300 text-sm py-0.5 hover:bg-red-500 hover:text-gray-100' onClick={(e) => setFunc(variant)}>{variant.var_name}</button>
+                <button key={variant.varId} className='transition-all duration-300 text-sm py-0.5 hover:bg-red-500 hover:text-gray-100' onClick={(e) => setFunc(variant)}>{variant.variantName}</button>
                 )}
             </div>
         </div>
@@ -116,16 +116,18 @@ const TableRow = ({typeName, TM1, TM2, TM3, TM4, TM5, TM6}) => {
 
     const Team = useMemo(() => [TM1, TM2, TM3, TM4, TM5, TM6], [TM1, TM2, TM3, TM4, TM5, TM6])
 
-    const TM1Resists = useMemo(() => GetVariantResist(TM1, typeName.toLowerCase()), [TM1, typeName]);
-    const TM2Resists = useMemo(() => GetVariantResist(TM2, typeName.toLowerCase()), [TM2, typeName]);
-    const TM3Resists = useMemo(() => GetVariantResist(TM3, typeName.toLowerCase()), [TM3, typeName]);
-    const TM4Resists = useMemo(() => GetVariantResist(TM4, typeName.toLowerCase()), [TM4, typeName]);
-    const TM5Resists = useMemo(() => GetVariantResist(TM5, typeName.toLowerCase()), [TM5, typeName]);
-    const TM6Resists = useMemo(() => GetVariantResist(TM6, typeName.toLowerCase()), [TM6, typeName]);
 
-    const totalResist = useMemo(() => GetTotalResist(Team, typeName.toLowerCase()), [Team, typeName]);
-    const totalWeak = useMemo(() => GetTotalWeak(Team, typeName.toLowerCase()), [Team, typeName]);
-    const totalImmune = useMemo(() => GetTotalImmune(Team, typeName.toLowerCase()), [Team, typeName]);
+    const TM1Resists = useMemo(() => TM1.combinedDefenses?.[typeName], [TM1, typeName]);
+    //const TM1Resists = useMemo(() => GetVariantResist(TM1, typeName.toLowerCase()), [TM1, typeName]);
+    const TM2Resists = useMemo(() => TM2.combinedDefenses?.[typeName], [TM2, typeName]);
+    const TM3Resists = useMemo(() => TM3.combinedDefenses?.[typeName], [TM3, typeName]);
+    const TM4Resists = useMemo(() => TM4.combinedDefenses?.[typeName], [TM4, typeName]);
+    const TM5Resists = useMemo(() => TM5.combinedDefenses?.[typeName], [TM5, typeName]);
+    const TM6Resists = useMemo(() => TM6.combinedDefenses?.[typeName], [TM6, typeName]);
+
+    const totalResist = useMemo(() => GetTotalResist(Team, typeName), [Team, typeName]);
+    const totalWeak = useMemo(() => GetTotalWeak(Team, typeName), [Team, typeName]);
+    const totalImmune = useMemo(() => GetTotalImmune(Team, typeName), [Team, typeName]);
 
 
     const TM1ResistStyle = useMemo(() => GetTMStyle(TM1Resists), [TM1Resists]);

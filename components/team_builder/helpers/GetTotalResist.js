@@ -9,7 +9,7 @@ export default function GetTotalResist(team, moveType) {
 
         team.forEach((TM) => {
             if (typeof TM ==='object') {
-                const value = GetVariantResist(TM, moveType);
+                const value = TM.combinedDefenses?.[moveType];
                 if (value < 1 && value!==0) {
                     total+=1;
                 }
