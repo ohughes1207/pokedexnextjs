@@ -1,10 +1,10 @@
 export default async function FetchVariant(searchQuery) {
 
     const queryParams = new URLSearchParams({
-        pokemon_name: searchQuery,
+        searchQuery: searchQuery,
     });
   
-    const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/variants/search?${queryParams}`)
+    const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/api/PokemonVariant/search?${queryParams}`)
   
     console.log(url);
   
