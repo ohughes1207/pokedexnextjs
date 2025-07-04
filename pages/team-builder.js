@@ -25,7 +25,7 @@ export default function TeamBuilder() {
         </>
     )
 }
-
+/*
 export async function getServerSideProps() {
 
     const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/api/PokemonBase/filtered?page=1`)
@@ -43,3 +43,4 @@ export async function getServerSideProps() {
         }
     }
 }
+*/
