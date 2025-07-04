@@ -1,5 +1,3 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-
 import React from 'react'
 
 import Head from 'next/head'
@@ -25,22 +23,3 @@ export default function TeamBuilder() {
         </>
     )
 }
-/*
-export async function getServerSideProps() {
-
-    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/api/PokemonBase/filtered?page=1`)
-
-    const dataFetched = await pokemonResponse.json()
-    
-    const pokemonData = dataFetched.data
-
-
-    //console.log("pokemonData type:", typeof pokemonData);
-    //console.log(process.env.NEXT_API_URL)
-    return {
-        props: {
-            pokemonData,
-        }
-    }
-}
-*/

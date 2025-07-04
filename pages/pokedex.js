@@ -1,5 +1,3 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-
 import React from 'react'
 import Head from 'next/head'
 import SearchMenu from '@/components/pokedex/SearchMenu'
