@@ -34,7 +34,9 @@ export default function Pokemon({ pokemonData, maxPages }) {
 export async function getServerSideProps() {
 
     
-    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/api/PokemonBase/filtered?page=1`);
+    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/api/PokemonBase/filtered?page=1`).then(res => res.json())
+    .then(console.log)
+    .catch(console.error);;
 
     const dataFetched = await pokemonResponse.json()
     
