@@ -26,13 +26,11 @@ export default function Pokemon({ pokemonData, maxPages }) {
         </>
     )
 }
-/*
+
 export async function getServerSideProps() {
 
     
-    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/api/PokemonBase/filtered?page=1`).then(res => res.json())
-    .then(console.log)
-    .catch(console.error);;
+    const pokemonResponse = await fetch(`${process.env.NEXT_API_URL}/api/PokemonBase/filtered?page=1`)
 
     const dataFetched = await pokemonResponse.json()
     
@@ -49,33 +47,4 @@ export async function getServerSideProps() {
             maxPages,
         }
     }
-}
-*/
-
-export async function getServerSideProps() {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/PokemonBase/filtered?page=1`);
-
-    if (!response.ok) {
-      console.error("API error:", response.status);
-      return { notFound: true };
-    }
-
-    const dataFetched = await response.json();
-
-    const pokemonData = dataFetched.data;
-    const maxPages = dataFetched.totalPages;
-    const currentPage = dataFetched.page;
-
-    return {
-      props: {
-        pokemonData,
-        maxPages,
-        currentPage,
-      },
-    };
-  } catch (error) {
-    console.error("Error in getServerSideProps:", error);
-    return { notFound: true };
-  }
 }
