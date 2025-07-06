@@ -170,7 +170,7 @@ const VariantStats = ( {variant} ) => (
 
 const CommonAttributes = ( {pokemon} ) => (
   <div className="text-sm sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold w-fit">
-    <h1 className='2xl:mb-3'>{pokemon.pokedexNum}</h1>
+    <h1 className="2xl:mb-3">#{String(pokemon.pokedexNum).padStart(4, '0')}</h1>
     <h1 className=''>{pokemon.baseName}</h1>
   </div>
 );
