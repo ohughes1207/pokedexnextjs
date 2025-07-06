@@ -4,7 +4,7 @@ export default async function FetchVariant(searchQuery) {
         searchQuery: searchQuery,
     });
   
-    const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/api/PokemonVariant/search?${queryParams}`)
+    const url = encodeURI(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/api/PokemonVariant?${queryParams}`)
   
     console.log(url);
   
