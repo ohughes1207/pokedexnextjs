@@ -53,7 +53,6 @@ export default function SearchMenu () {
 const Filter = ( {text, filter, setFilter } ) => {
   
   const toggleFilter = (e) => {
-    console.log(filter)
     setFilter(!filter)
   }; 
 
@@ -81,7 +80,6 @@ const SearchBar = () => {
 const GenFilter = () => {
   const [genValue, setGenValue] = useAtom(genValueAtom)
   const handleInputChange = (e) => {
-    console.log(e.target.value)
     setGenValue(e.target.value);
   };
   return (

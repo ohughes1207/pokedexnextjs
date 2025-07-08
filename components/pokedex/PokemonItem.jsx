@@ -27,7 +27,6 @@ export default function PokemonList ( { pokemonData, total_pages } ) {
 
   const [maxPages, setMaxPages] = useState(total_pages)
 
-  //console.log("filteredPokemonData type:", filteredPokemonData);
 
   useEffect(() => {
     FetchFilteredPokemon(searchQuery, T1Filter, T2Filter, genValue, isLegendary, isParadox, isPseudoL, isUB, isMythical, isRegional, isMega, pageNum)
